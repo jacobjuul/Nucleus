@@ -21,7 +21,10 @@ const navigatorStyle = {
   navBarTextColor: 'white',
   navBarButtonColor: 'white',
   statusBarTextColorScheme: 'light',
-  drawUnderTabBar: false
+  drawUnderTabBar: false,
+  navBarTextFontSize: 13,
+  navBarTextFontWeight: 400,
+  statusBarBlur: true,
 };
 
 const iconInsets = { // add this to change icon position (optional, iOS only).
@@ -57,7 +60,7 @@ class App extends Component {
 
     Navigation.startTabBasedApp({
       tabs: [{
-        screen: 'nuke.home',
+        screen: 'nuke.feed',
         // icon: '',
         // selectedIcon: '',
         title: 'Business updates',
@@ -65,7 +68,7 @@ class App extends Component {
         iconInsets,
         navigatorButtons
       }, {
-        screen: 'nuke.home',
+        screen: 'nuke.feed',
         // icon: '',
         // selectedIcon: '',
         title: 'Call',
@@ -73,7 +76,7 @@ class App extends Component {
         iconInsets,
         navigatorButtons
       }, {
-        screen: 'nuke.home',
+        screen: 'nuke.feed',
         // icon: '',
         // selectedIcon: '',
         title: 'Notes',
@@ -81,7 +84,7 @@ class App extends Component {
         iconInsets,
         navigatorButtons
       }, {
-        screen: 'nuke.home',
+        screen: 'nuke.feed',
         // icon: '',
         // selectedIcon: '',
         title: 'Photos',
@@ -89,7 +92,7 @@ class App extends Component {
         iconInsets,
         navigatorButtons
       }, {
-        screen: 'nuke.home',
+        screen: 'nuke.feed',
         // icon: '',
         // selectedIcon: '',
         title: 'Mood',
@@ -100,11 +103,11 @@ class App extends Component {
     ],
     drawer: { // optional, add this if you want a side menu drawer in your app
       left: { // optional, define if you want a drawer from the left
-        screen: 'nuke.home', // unique ID registered with Navigation.registerScreen
+        screen: 'nuke.feed', // unique ID registered with Navigation.registerScreen
         passProps: {} // simple serializable object that will pass as props to all top screens (optional)
       },
       right: { // optional, define if you want a drawer from the right
-        screen: 'nuke.home', // unique ID registered with Navigation.registerScreen
+        screen: 'nuke.feed', // unique ID registered with Navigation.registerScreen
         passProps: {} // simple serializable object that will pass as props to all top screens (optional)
       },
       style: {
