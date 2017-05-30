@@ -1,13 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
-import { View } from 'react-native';
-import { Navigation } from 'react-native-navigation';
-import { Provider } from 'react-redux';
-import { registerScreens } from './screens/registerScreens';
-
-import configureStore from './store/configureStore';
-
-import * as style from './constants/styles';
+import { View }             from 'react-native';
+import { Navigation }       from 'react-native-navigation';
+import { Provider }         from 'react-redux';
+import { registerScreens }  from './screens/registerScreens';
+import configureStore       from './store/configureStore';
+import * as style           from './constants/styles';
 
 const store = configureStore();
 
@@ -15,7 +13,7 @@ registerScreens(store, Provider);
 
 
 const navigatorStyle = {
-  navBarTranslucent: true,
+  navBarTranslucent: false,
   navBarBackgroundColor: style.app.colors.primary,
   drawUnderNavBar: false,
   navBarTextColor: 'white',
@@ -24,7 +22,6 @@ const navigatorStyle = {
   drawUnderTabBar: false,
   navBarTextFontSize: 13,
   navBarTextFontWeight: 400,
-  statusBarBlur: true,
 };
 
 const iconInsets = { // add this to change icon position (optional, iOS only).
@@ -44,14 +41,14 @@ class App extends Component {
     const navigatorButtons = {
       rightButtons: [
         {
-          title: 'Activities',
+          title: '',
           id: 'navbar.search',
           // icon: '',
         }
       ],
       leftButtons: [
         {
-          title: 'Awards',
+          title: '',
           id: 'navbar.bookmarks',
           // icon: '',
         }

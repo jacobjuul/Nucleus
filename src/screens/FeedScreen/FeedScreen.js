@@ -1,22 +1,44 @@
 /* @flow */
+import React, { Component }     from 'react';
+import { ListView, StyleSheet } from 'react-native';
 
-import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-} from 'react-native';
-// import { drawerListener } from '../utils/drawerHelper';
+import { app as appStyles } from '../../constants/styles';
+import FeedItem             from '../../components/FeedItem';
 
-export default class HomeScreen extends Component {
-  // componentDidMount() {
-  //   drawerListener(this.props.navigator)
-  // }
+type StateType = {
+  dataSource: Object[]
+};
+
+export default class FeedScreen extends Component {
+  state: StateType;
+
+  constructor() {
+    super();
+    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+    this.state = {
+      dataSource: ds.cloneWithRows([{
+        title: 'Maersk gaar konkurs',
+        author: 'Maersk',
+        summary: 'Every year, Maersk Line reviews and rates our used containers. The condition of the containers is used to rate them in three different categories: Reuse, Repurpose and Recycle. The containers are then retired from active service in our fleet and put up for sale.'
+      }, {
+        title: 'Maersk har mirakel vaekst',
+        author: 'Maersk Line',
+        summary: 'The containers are then added to the webshop and can be found based on various criterias. You can search by class, type, size, location, etc.'
+      }]),
+    };
+  }
+
+  renderRow = (r) => {
+    return <FeedItem title={r.title} author={r.author} summary={r.summary}/>
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text>SO GOOD</Text>
-      </View>
+      <ListView
+        style={styles.container}
+        dataSource={this.state.dataSource}
+        renderRow={this.renderRow}
+      />
     );
   }
 }
@@ -24,5 +46,6 @@ export default class HomeScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: appStyles.colors.primary,
   },
 });
