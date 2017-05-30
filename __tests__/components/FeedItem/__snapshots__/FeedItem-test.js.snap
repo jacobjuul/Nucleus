@@ -1,0 +1,224 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FeedItem renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "white",
+      "marginBottom": 15,
+      "paddingLeft": 15,
+      "paddingRight": 15,
+      "shadowColor": "black",
+      "shadowOffset": Object {
+        "height": 4,
+        "width": 0,
+      },
+      "shadowOpacity": 0.5,
+      "shadowRadius": 6,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "paddingBottom": 20,
+        "paddingTop": 22,
+      }
+    }
+  >
+    <View
+      style={Object {}}
+    >
+      <Image
+        source={1}
+        style={
+          Object {
+            "height": 32,
+            "marginRight": 10,
+            "width": 32,
+          }
+        }
+      />
+    </View>
+    <View
+      style={Object {}}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#69B8D6",
+            "fontSize": 15,
+          }
+        }
+      >
+        TestAuthor
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "rgba(0,0,0,0.5)",
+            "fontSize": 12,
+          }
+        }
+      >
+        2. May
+      </Text>
+    </View>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        Object {
+          "paddingBottom": 16,
+        },
+      ]
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <View>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "black",
+            "fontSize": 25,
+            "fontWeight": "bold",
+            "marginBottom": 10,
+          }
+        }
+      >
+        Short Title
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        numberOfLines={4}
+        style={
+          Object {
+            "fontFamily": "Helvetica Neue",
+            "fontSize": 18,
+            "lineHeight": 28,
+          }
+        }
+      />
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            undefined,
+          ]
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "rgba(0,0,0,0.5)",
+              "fontSize": 12,
+              "paddingTop": 15,
+            }
+          }
+        >
+          Read more
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "borderColor": "#E0E5E5",
+        "borderTopWidth": 0.5,
+        "display": "flex",
+        "flexDirection": "row",
+        "height": 50,
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <View>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 12,
+          }
+        }
+      >
+        12
+         
+        responses
+      </Text>
+    </View>
+    <View>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 12,
+          }
+        }
+      >
+        4
+         
+        bookmarks
+      </Text>
+    </View>
+  </View>
+</View>
+`;

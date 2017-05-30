@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-import React, { Component } from 'react';
 import { View }             from 'react-native';
 import { Navigation }       from 'react-native-navigation';
 import { Provider }         from 'react-redux';
@@ -22,6 +21,7 @@ const navigatorStyle = {
   drawUnderTabBar: false,
   navBarTextFontSize: 13,
   navBarTextFontWeight: 400,
+  navBarNoBorder: true
 };
 
 const iconInsets = { // add this to change icon position (optional, iOS only).
@@ -31,9 +31,8 @@ const iconInsets = { // add this to change icon position (optional, iOS only).
   right: 0 // optional, default is 0.
 };
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+class App {
+  constructor() {
     this.startApp();
   }
 

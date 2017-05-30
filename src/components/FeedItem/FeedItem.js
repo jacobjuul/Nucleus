@@ -10,16 +10,17 @@ import {
   Image
 } from 'react-native';
 import { app as appStyles } from '../../constants/styles';
+import pluralize from '../../utils/pluralize';
 
 type Props = {
   title: string,
   author: Object,
   summary: string,
-  responses: number,
+  comments: number,
   bookmarks: number,
 };
 
-const FeedItem = ({ title, author, summary, responses, bookmarks }: Props) => {
+const FeedItem = ({ title, author, summary, comments, bookmarks }: Props) => {
   return (
     <View style={styles.container}>
       <View style={styles.topBar}>
@@ -36,17 +37,21 @@ const FeedItem = ({ title, author, summary, responses, bookmarks }: Props) => {
         <View>
           <Text style={styles.title}>{title}</Text>
           <Text
-            numberOfLines={5}
+            numberOfLines={4}
             ellipsizeMode="tail"
             style={styles.summary}
           >
             {summary}
           </Text>
+          <TouchableHighlight>
+            <Text style={styles.readMore}>Read more</Text>
+          </TouchableHighlight>
         </View>
       </TouchableHighlight>
 
       <View style={styles.footer}>
-        <Text>footer</Text>
+        <View><Text style={styles.footerText}>{comments} {pluralize('response', comments)}</Text></View>
+        <View><Text style={styles.footerText}>{bookmarks} {pluralize('bookmark', bookmarks)}</Text></View>
       </View>
     </View>
   );
@@ -72,22 +77,34 @@ const styles = StyleSheet.create({
   },
   topBarLeft: {
 
-
   },
   topBarRight: {
   },
   content: {
-
+    paddingBottom: 16
   },
   footer: {
     display: 'flex',
-    justifyContent: 'center',
-    height: 50
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    height: 50,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderColor: '#E0E5E5'
+  },
+  footerText: {
+    fontSize: 12
   },
   title: {
     color: 'black',
     fontSize: 25,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  readMore: {
+    paddingTop: 15,
+    color: appStyles.colors.muted,
+    fontSize: 12
   },
   author: {
     fontSize: 15,
@@ -99,7 +116,8 @@ const styles = StyleSheet.create({
   },
   summary: {
     fontSize: 18,
-    fontFamily: 'Helvetica Neue'
+    fontFamily: 'Helvetica Neue',
+    lineHeight: 28
   },
   avatar: {
     height: 32,
