@@ -1,6 +1,5 @@
 // @flow
 import React     from 'react';
-import PropTypes from 'prop-types';
 import moment    from 'moment';
 import {
   View,
@@ -12,15 +11,15 @@ import {
 import { app as appStyles } from '../../constants/styles';
 import pluralize from '../../utils/pluralize';
 
-type Props = {
-  title: string,
-  author: Object,
-  summary: string,
-  comments: number,
+type PropTypes = {
+  title:     string,
+  author:    Object,
+  summary:   string,
+  comments:  number,
   bookmarks: number,
 };
 
-const FeedItem = ({ title, author, summary, comments, bookmarks }: Props) => {
+const FeedItem = ({ title, author, summary, comments, bookmarks }: PropTypes) => {
   return (
     <View style={styles.container}>
       <View style={styles.topBar}>
@@ -125,10 +124,5 @@ const styles = StyleSheet.create({
     marginRight: 10
   }
 });
-
-FeedItem.propTypes = {
-  title: PropTypes.string,
-  author: PropTypes.string
-}
 
 export default FeedItem;
