@@ -8,6 +8,7 @@
 		"test:update": "jest --updateSnapshot"
 	},
 	"dependencies": {
+		"axios": "^0.16.1",
 		"moment": "^2.18.1",
 		"normalizr": "^3.2.3",
 		"ramda": "^0.24.0",
