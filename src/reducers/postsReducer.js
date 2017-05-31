@@ -10,14 +10,18 @@ const normalizePosts = posts => {
 const initialState = {
     result: {},
     entities: {},
-    loading: true,
+    loading: false,
     fetched: false
 };
 
 export const postsReducer = (state = initialState, action: Object) => {
   switch(action.type) {
     case types.FETCH_POSTS: {
-      return state;
+      return {
+        ...state,
+        loading: true,
+        fetched: false,
+      };
     };
 
     case types.FETCH_POSTS_SUCCESS: {
@@ -29,7 +33,12 @@ export const postsReducer = (state = initialState, action: Object) => {
     };
 
     case types.FETCH_POSTS_FAILURE: {
-      return state;
+      return {
+        ...state,
+        loading: false,
+        fetched: false,
+        error: action.error
+      };
     }
 
     default: {
