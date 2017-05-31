@@ -9,6 +9,7 @@
 	},
 	"dependencies": {
 		"moment": "^2.18.1",
+		"normalizr": "^3.2.3",
 		"ramda": "^0.24.0",
 		"react": "16.0.0-alpha.6",
 		"react-native": "0.44.2",
