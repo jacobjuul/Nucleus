@@ -42,7 +42,7 @@ class App {
         {
           title: '',
           id: 'navbar.search',
-          // icon: '',
+          // icon: require('./assets/icons/'),
         }
       ],
       leftButtons: [
@@ -57,46 +57,43 @@ class App {
     Navigation.startTabBasedApp({
       tabs: [{
         screen: 'nuke.feed',
-        // icon: '',
-        // selectedIcon: '',
+        icon: require('./assets/icons/home-deactive.png'),
+        selectedIcon: require('./assets/icons/home-active.png'),
         title: 'Business updates',
         navigatorStyle,
         iconInsets,
-        navigatorButtons
+        navigatorButtons: {
+          rightButtons: [{
+            title: '',
+            id: 'newsfeed.nav.search',
+            icon: require('./assets/icons/Bookmark.png')
+          }]
+        }
       }, {
         screen: 'nuke.feed',
-        // icon: '',
-        // selectedIcon: '',
-        title: 'Call',
+        icon: require('./assets/icons/Users-deaktive.png'),
+        selectedIcon: require('./assets/icons/Users-active.png'),
+        title: 'Leadership',
         navigatorStyle,
         iconInsets,
         navigatorButtons
       }, {
         screen: 'nuke.feed',
-        // icon: '',
-        // selectedIcon: '',
-        title: 'Notes',
+        icon: require('./assets/icons/toolbox-deactive.png'),
+        selectedIcon: require('./assets/icons/toolbox-active.png'),
+        title: 'Toolbox',
         navigatorStyle,
         iconInsets,
         navigatorButtons
       }, {
         screen: 'nuke.feed',
-        // icon: '',
-        // selectedIcon: '',
-        title: 'Photos',
+        icon: require('./assets/icons/meetings-deactive.png'),
+        selectedIcon: require('./assets/icons/meetings-active.png'),
+        title: 'Quarterly Meetings',
         navigatorStyle,
         iconInsets,
         navigatorButtons
-      }, {
-        screen: 'nuke.feed',
-        // icon: '',
-        // selectedIcon: '',
-        title: 'Mood',
-        navigatorStyle,
-        iconInsets,
-        navigatorButtons
-      }
-    ],
+      }],
     drawer: { // optional, add this if you want a side menu drawer in your app
       left: { // optional, define if you want a drawer from the left
         screen: 'nuke.feed', // unique ID registered with Navigation.registerScreen
@@ -112,8 +109,8 @@ class App {
       disableOpenGesture: false // optional, can the drawer be opened with a swipe instead of button
     },
     tabsStyle: {
-      tabBarButtonColor: style.app.colors.primary,
-      tabBarSelectedButtonColor: style.app.colors.primary,
+      tabBarButtonColor: 'rgba(255,255,255,0.9)',
+      tabBarSelectedButtonColor: 'none',
       tabBarBackgroundColor: style.app.colors.tabBar
     }
   });
