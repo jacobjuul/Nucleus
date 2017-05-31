@@ -1,0 +1,43 @@
+{
+  "news": [{
+    "id": 1,
+    "title": "Maersk gaar konkurs",
+    "author": "Maersk",
+    "summary": "Every year, Maersk Line reviews and rates our used containers. The condition of the containers is used to rate them in three different categories: Reuse, Repurpose and Recycle. The containers are then retired from active service in our fleet and put up for sale."
+  }, {
+    "id": 2,
+    "title": "Maersk har mirakel vaekst",
+    "author": "Maersk Line",
+    "summary": "The containers are then added to the webshop and can be found based on various criterias. You can search by class, type, size, location, etc."
+  }],
+  "comments": [{
+    "id": 1,
+    "text": "Jeg er ikke enig",
+    "user_id": 1,
+    "news_id": 1
+  }, {
+    "id": 2,
+    "text": "Jeg er helt enig",
+    "user_id": 2,
+    "news_id": 1
+  }],
+  "users": [{
+    "id": "1",
+    "firstName": "Jacob",
+    "lastName": "Juul",
+    "email": "jacob.juul@gmail.com",
+    "isLeader": true,
+    "isAdmin": false,
+    "department": "Copenhagen",
+    "country": "Denmark"
+  }, {
+    "id": "2",
+    "firstName": "Ariel",
+    "lastName": "Mermaid",
+    "Ariel": "Mermaid",
+    "isLeader": false,
+    "isAdmin": false,
+    "Department": "Singapore",
+    "country": "Singapore"
+  }]
+}
