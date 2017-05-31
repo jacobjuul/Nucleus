@@ -2,7 +2,7 @@
 import React, { Component }           from 'react';
 import { ListView, StyleSheet, View } from 'react-native';
 import { connect }                    from 'react-redux';
-import R_valuesIn                      from 'ramda/src/valuesIn';
+import R_valuesIn                     from 'ramda/src/valuesIn';
 
 import { app as appStyles } from '../../constants/styles';
 import { fetchPosts }       from '../../actions/postActions';
