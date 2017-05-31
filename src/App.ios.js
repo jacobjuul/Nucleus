@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
-import { View }             from 'react-native';
-import { Navigation }       from 'react-native-navigation';
-import { Provider }         from 'react-redux';
-import { registerScreens }  from './screens/registerScreens';
-import configureStore       from './store/configureStore';
-import * as style           from './constants/styles';
+import React, { Component }   from 'react';
+import { Provider, connect }  from 'react-redux';
+import { Navigation }         from 'react-native-navigation';
+import { registerScreens }    from './screens/registerScreens';
+import configureStore         from './store/configureStore';
+import * as style             from './constants/styles';
 
 const store = configureStore();
 
@@ -31,8 +31,9 @@ const iconInsets = { // add this to change icon position (optional, iOS only).
   right: 0 // optional, default is 0.
 };
 
-class App {
+class App extends Component {
   constructor() {
+    super();
     this.startApp();
   }
 
@@ -94,27 +95,27 @@ class App {
         iconInsets,
         navigatorButtons
       }],
-    drawer: { // optional, add this if you want a side menu drawer in your app
-      left: { // optional, define if you want a drawer from the left
-        screen: 'nuke.feed', // unique ID registered with Navigation.registerScreen
-        passProps: {} // simple serializable object that will pass as props to all top screens (optional)
+      drawer: { // optional, add this if you want a side menu drawer in your app
+        left: { // optional, define if you want a drawer from the left
+          screen: 'nuke.feed', // unique ID registered with Navigation.registerScreen
+          passProps: {} // simple serializable object that will pass as props to all top screens (optional)
+        },
+        right: { // optional, define if you want a drawer from the right
+          screen: 'nuke.feed', // unique ID registered with Navigation.registerScreen
+          passProps: {} // simple serializable object that will pass as props to all top screens (optional)
+        },
+        style: {
+          leftDrawerWidth: '90%',
+        },
+        disableOpenGesture: false // optional, can the drawer be opened with a swipe instead of button
       },
-      right: { // optional, define if you want a drawer from the right
-        screen: 'nuke.feed', // unique ID registered with Navigation.registerScreen
-        passProps: {} // simple serializable object that will pass as props to all top screens (optional)
-      },
-      style: {
-        leftDrawerWidth: '90%',
-      },
-      disableOpenGesture: false // optional, can the drawer be opened with a swipe instead of button
-    },
-    tabsStyle: {
-      tabBarButtonColor: 'rgba(255,255,255,0.9)',
-      tabBarSelectedButtonColor: 'none',
-      tabBarBackgroundColor: style.app.colors.tabBar
-    }
-  });
-}
+      tabsStyle: {
+        tabBarButtonColor: 'rgba(255,255,255,0.9)',
+        tabBarSelectedButtonColor: 'none',
+        tabBarBackgroundColor: style.app.colors.tabBar
+      }
+    });
+  }
 }
 
 export default App;

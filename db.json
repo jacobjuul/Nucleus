@@ -1,14 +1,14 @@
 {
-  "news": [{
+  "posts": [{
     "id": 1,
     "title": "Maersk gaar konkurs",
-    "author": "Maersk",
-    "summary": "Every year, Maersk Line reviews and rates our used containers. The condition of the containers is used to rate them in three different categories: Reuse, Repurpose and Recycle. The containers are then retired from active service in our fleet and put up for sale."
+    "user_id": "1",
+    "post": "Every year, Maersk Line reviews and rates our used containers. The condition of the containers is used to rate them in three different categories: Reuse, Repurpose and Recycle. The containers are then retired from active service in our fleet and put up for sale."
   }, {
     "id": 2,
     "title": "Maersk har mirakel vaekst",
-    "author": "Maersk Line",
-    "summary": "The containers are then added to the webshop and can be found based on various criterias. You can search by class, type, size, location, etc."
+    "user_id": "1",
+    "post": "The containers are then added to the webshop and can be found based on various criterias. You can search by class, type, size, location, etc."
   }],
   "comments": [{
     "id": 1,
