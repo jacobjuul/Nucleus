@@ -2,7 +2,7 @@
 import React, { Component }           from 'react';
 import { ListView, StyleSheet, View } from 'react-native';
 import { connect }                    from 'react-redux';
-import R                              from 'ramda';
+import R_valuesIn                      from 'ramda/src/valuesIn';
 
 import { app as appStyles } from '../../constants/styles';
 import { fetchPosts }       from '../../actions/postActions';
@@ -44,7 +44,7 @@ class FeedScreen extends Component {
 
   setDataSource = () => {
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-    const posts = R.valuesIn(this.props.posts);
+    const posts = R_valuesIn(this.props.posts);
     this.setState({
       dataSource: ds.cloneWithRows(posts),
     });
