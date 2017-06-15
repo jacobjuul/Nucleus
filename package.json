@@ -1,33 +1,38 @@
 {
-	"name": "nuke",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"start": "react-native run-ios && npm test",
-		"test": "jest --watchAll",
-		"test:update": "jest --updateSnapshot"
-	},
-	"dependencies": {
-		"axios": "^0.16.1",
-		"moment": "^2.18.1",
-		"normalizr": "^3.2.3",
-		"ramda": "^0.24.0",
-		"react": "16.0.0-alpha.6",
-		"react-native": "0.44.2",
-		"react-native-navigation": "1.1.81",
-		"react-redux": "^5.0.5",
-		"redux": "^3.6.0",
-		"redux-logger": "^3.0.6",
-		"redux-thunk": "^2.2.0"
-	},
-	"devDependencies": {
-		"babel-jest": "20.0.3",
-		"babel-preset-react-native": "1.9.2",
-		"flow-bin": "0.42.0",
-		"jest": "20.0.4",
-		"react-test-renderer": "16.0.0-alpha.6"
-	},
-	"jest": {
-		"preset": "react-native"
-	}
+  "name": "nuke",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native run-ios && npm test",
+    "test": "jest --watchAll",
+    "test:update": "jest --updateSnapshot"
+  },
+  "dependencies": {
+    "axios": "^0.16.1",
+    "moment": "^2.18.1",
+    "normalizr": "^3.2.3",
+    "ramda": "^0.24.0",
+    "react": "16.0.0-alpha.6",
+    "react-native": "0.44.2",
+    "react-native-navigation": "1.1.81",
+    "react-redux": "^5.0.5",
+    "redux": "^3.6.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-jest": "20.0.3",
+    "babel-preset-react-native": "1.9.2",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.0.1",
+    "flow-bin": "0.42.0",
+    "jest": "20.0.4",
+    "react-test-renderer": "16.0.0-alpha.6"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
 }

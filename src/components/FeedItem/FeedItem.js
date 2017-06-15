@@ -17,8 +17,7 @@ type PropTypes =
   , author:    Object
   , summary:   string
   , comments:  number
-  , bookmarks: number
-};
+  , bookmarks: number };
 
 const FeedItem = ({ title, author, summary, comments, bookmarks }: PropTypes) => {
   return (
@@ -42,6 +41,5 @@ const FeedItem = ({ title, author, summary, comments, bookmarks }: PropTypes) =>
     </View>
   );
 };
-
 
 export default FeedItem;
