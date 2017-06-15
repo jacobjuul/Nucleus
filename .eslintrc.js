@@ -70,6 +70,5 @@ module.exports = {
     "import/no-extraneous-dependencies": 0,
     'import/extensions': ['off', 'never'],
     "no-multi-spaces": ["error", { exceptions: { "ImportDeclaration": true } }]
-
   }
 };

@@ -1,8 +1,7 @@
+// @flow
 import React from 'react';
-
 import { TouchableHighlight, Text, View } from 'react-native';
 import styles from './FeedItemStyles';
-
 
 const FeedItemSummary = ({ summary, title }) => {
   return (
