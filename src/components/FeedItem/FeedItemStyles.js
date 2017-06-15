@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { app as appStyles } from '../../constants/styles';
+import { colors }     from '../../constants/styles';
 
 const FeedItemStyles = StyleSheet.create({
   container: {
@@ -46,15 +46,15 @@ const FeedItemStyles = StyleSheet.create({
   },
   readMore: {
     paddingTop: 15,
-    color: appStyles.colors.muted,
+    color: colors.muted,
     fontSize: 12
   },
   author: {
     fontSize: 15,
-    color: appStyles.colors.secondary
+    color: colors.secondary
   },
   date: {
-    color: appStyles.colors.muted,
+    color: colors.muted,
     fontSize: 12,
   },
   summary: {

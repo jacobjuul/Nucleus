@@ -4,7 +4,7 @@ import { ListView, StyleSheet, View } from 'react-native';
 import { connect }                    from 'react-redux';
 import R_valuesIn                     from 'ramda/src/valuesIn';
 
-import { app as appStyles } from '../../constants/styles';
+import { colors, fonts }    from '../../constants/styles';
 import { fetchPosts }       from '../../actions/postActions';
 import FeedItem             from '../../components/FeedItem';
 
@@ -68,7 +68,7 @@ class FeedScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: appStyles.colors.primary,
+    backgroundColor: colors.primary,
   },
 });
 

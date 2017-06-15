@@ -4,16 +4,15 @@ import { Provider, connect }  from 'react-redux';
 import { Navigation }         from 'react-native-navigation';
 import { registerScreens }    from './screens/registerScreens';
 import configureStore         from './store/configureStore';
-import * as style             from './constants/styles';
+import { colors }             from './constants/styles';
 
 const store = configureStore();
 
 registerScreens(store, Provider);
 
-
 const navigatorStyle = {
   navBarTranslucent: false,
-  navBarBackgroundColor: style.app.colors.primary,
+  navBarBackgroundColor: colors.primary,
   drawUnderNavBar: false,
   navBarTextColor: 'white',
   navBarButtonColor: 'white',
@@ -112,7 +111,7 @@ class App extends Component {
       tabsStyle: {
         tabBarButtonColor: 'rgba(255,255,255,0.9)',
         tabBarSelectedButtonColor: 'none',
-        tabBarBackgroundColor: style.app.colors.tabBar
+        tabBarBackgroundColor: colors.tabBar
       }
     });
   }
