@@ -15,9 +15,11 @@ type StateType = {
 class FeedScreen extends Component {
   state: StateType;
 
-  constructor() {
-    super();
-    this.state = { dataSource: [] };
+  constructor(props) {
+    super(props);
+    this.state = {
+      dataSource: new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
+    }; 
   }
 
   componentWillMount() {
@@ -26,8 +28,14 @@ class FeedScreen extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.fetched && nextProps.posts !== this.props.posts) {
-      this.setDataSource();
+      this.setDataSource(nextProps.posts);
     }
+  }
+
+  setDataSource = (posts) => {
+    this.setState({ 
+      dataSource: this.state.dataSource.cloneWithRows(R_valuesIn(posts))
+    });
   }
 
   renderRow = (row) => {
@@ -40,14 +48,6 @@ class FeedScreen extends Component {
         comments={row.comments}
       />
     );
-  }
-
-  setDataSource = () => {
-    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-    const posts = R_valuesIn(this.props.posts);
-    this.setState({
-      dataSource: ds.cloneWithRows(posts),
-    });
   }
 
   render() {
