@@ -43,7 +43,6 @@ class FeedScreen extends Component {
   }
 
   renderRow = (row) => {
-    console.log(row);
     return (
       <FeedItem
         title={row.title}
