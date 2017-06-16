@@ -70,7 +70,7 @@ class App extends Component {
           }]
         }
       }, {
-        screen: 'nuke.feed',
+        screen: 'nuke.notready',
         icon: require('./assets/icons/Users-deaktive.png'),
         selectedIcon: require('./assets/icons/Users-active.png'),
         title: 'Leadership',
@@ -78,7 +78,7 @@ class App extends Component {
         iconInsets,
         navigatorButtons
       }, {
-        screen: 'nuke.feed',
+        screen: 'nuke.notready',
         icon: require('./assets/icons/toolbox-deactive.png'),
         selectedIcon: require('./assets/icons/toolbox-active.png'),
         title: 'Toolbox',
@@ -86,7 +86,7 @@ class App extends Component {
         iconInsets,
         navigatorButtons
       }, {
-        screen: 'nuke.feed',
+        screen: 'nuke.notready',
         icon: require('./assets/icons/meetings-deactive.png'),
         selectedIcon: require('./assets/icons/meetings-active.png'),
         title: 'Quarterly Meetings',
@@ -96,11 +96,11 @@ class App extends Component {
       }],
       drawer: { // optional, add this if you want a side menu drawer in your app
         left: { // optional, define if you want a drawer from the left
-          screen: 'nuke.feed', // unique ID registered with Navigation.registerScreen
+          screen: 'nuke.notready', // unique ID registered with Navigation.registerScreen
           passProps: {} // simple serializable object that will pass as props to all top screens (optional)
         },
         right: { // optional, define if you want a drawer from the right
-          screen: 'nuke.feed', // unique ID registered with Navigation.registerScreen
+          screen: 'nuke.notready', // unique ID registered with Navigation.registerScreen
           passProps: {} // simple serializable object that will pass as props to all top screens (optional)
         },
         style: {

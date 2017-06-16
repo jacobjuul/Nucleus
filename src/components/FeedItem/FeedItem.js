@@ -27,7 +27,7 @@ const FeedItem = ({ title, author, excerpt, comments, bookmarks }: PropTypes) =>
           <Image style={styles.avatar} source={require('../../assets/icons/logo.png')} />
         </View>
         <View style={styles.topBarRight}>
-          <Text style={styles.author}>{author}</Text>
+          <Text style={styles.author}>{author.email}</Text>
           <Text style={styles.date}>{moment().format('d. MMMM')}</Text>
         </View>
       </View>
