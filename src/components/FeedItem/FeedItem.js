@@ -15,11 +15,11 @@ import FeedItemSummary from './FeedItemSummary';
 type PropTypes =
   { title:     string
   , author:    Object
-  , summary:   string
+  , excerpt:   string
   , comments:  number
   , bookmarks: number };
 
-const FeedItem = ({ title, author, summary, comments, bookmarks }: PropTypes) => {
+const FeedItem = ({ title, author, excerpt, comments, bookmarks }: PropTypes) => {
   return (
     <View style={styles.container}>
       <View style={styles.topBar}>
@@ -27,12 +27,12 @@ const FeedItem = ({ title, author, summary, comments, bookmarks }: PropTypes) =>
           <Image style={styles.avatar} source={require('../../assets/icons/logo.png')} />
         </View>
         <View style={styles.topBarRight}>
-          <Text style={styles.author}>{author}</Text>
+          <Text style={styles.author}>{author.email}</Text>
           <Text style={styles.date}>{moment().format('d. MMMM')}</Text>
         </View>
       </View>
 
-      <FeedItemSummary title={title} summary={summary} />
+      <FeedItemSummary title={title} summary={excerpt} />
 
       <View style={styles.footer}>
         <View><Text style={styles.footerText}>{comments} {pluralize('response', comments)}</Text></View>

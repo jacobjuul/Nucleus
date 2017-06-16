@@ -1,8 +1,12 @@
 /* @flow */
 import React, { Component }           from 'react';
-import { ListView, StyleSheet, View } from 'react-native';
 import { connect }                    from 'react-redux';
 import R_valuesIn                     from 'ramda/src/valuesIn';
+import { 
+  ListView, 
+  StyleSheet, 
+  View, 
+  ActivityIndicator }                 from 'react-native';
 
 import { colors, fonts }    from '../../constants/styles';
 import { fetchPosts }       from '../../actions/postActions';
@@ -22,7 +26,7 @@ class FeedScreen extends Component {
     }; 
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchPosts();
   }
 
@@ -43,7 +47,8 @@ class FeedScreen extends Component {
       <FeedItem
         title={row.title}
         author={row.author}
-        summary={row.post}
+        excerpt={row.excerpt}
+        content={row.content}
         bookmarks={row.bookmarks}
         comments={row.comments}
       />
@@ -51,6 +56,10 @@ class FeedScreen extends Component {
   }
 
   render() {
+    if (this.props.loading) {
+      return <ActivityIndicator style={styles.container} color="white" />
+    }
+
     if (this.props.fetched) {
       return (
         <ListView
@@ -72,8 +81,8 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = ({ posts }) => ({
-  posts: posts.entities.posts,
+const mapStateToProps = ({ entities, posts }) => ({
+  posts: entities.posts,
   loading: posts.loading,
   fetched: posts.fetched
 });

@@ -56,9 +56,7 @@ exports[`FeedItem renders correctly 1`] = `
             "fontSize": 15,
           }
         }
-      >
-        TestAuthor
-      </Text>
+      />
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -70,7 +68,7 @@ exports[`FeedItem renders correctly 1`] = `
           }
         }
       >
-        3. May
+        5. June
       </Text>
     </View>
   </View>
