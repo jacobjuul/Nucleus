@@ -2,14 +2,16 @@ import axios from 'axios';
 import * as types from '../constants/actionTypes';
 import api from '../utils/apiHelper';
 
-export const fetchPosts = () => (dispatch) => {
+export const fetchPosts = () => async (dispatch) => {
   dispatch({ type: types.FETCH_POSTS });
-  api.posts().then((content, error) => {
+  try {
+    const posts = await api.posts();
+    dispatch({ type: types.FETCH_POSTS_SUCCESS, posts: posts.hits });
+  } catch (error) {
     dispatch({
-      type: error ? types.FETCH_POSTS_FAILURE : types.FETCH_POSTS_SUCCESS,
-      posts: !error && content.hits,
+      type: types.FETCH_POSTS_FAILURE,
       error
     });
-  });
+  }
 };
 
