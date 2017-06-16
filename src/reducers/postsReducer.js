@@ -1,17 +1,10 @@
 import * as types from '../constants/actionTypes';
 import { normalize, schema } from 'normalizr';
 
-const normalizePosts = posts => {
-  const postSchema = new schema.Entity('posts');
-  const postListSchema = [postSchema];
-  return normalize(posts, postListSchema);
-};
-
 const initialState = {
-    result: {},
-    entities: {},
     loading: false,
-    fetched: false
+    fetched: false,
+    error: undefined
 };
 
 export const postsReducer = (state = initialState, action: Object) => {
@@ -28,7 +21,6 @@ export const postsReducer = (state = initialState, action: Object) => {
       return {
         loading: false,
         fetched: true,
-        ...normalizePosts(action.posts)
       };
     };
 

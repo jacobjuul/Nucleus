@@ -39,11 +39,13 @@ class FeedScreen extends Component {
   }
 
   renderRow = (row) => {
+    console.log(row);
     return (
       <FeedItem
         title={row.title}
         author={row.author}
-        summary={row.post}
+        excerpt={row.excerpt}
+        content={row.content}
         bookmarks={row.bookmarks}
         comments={row.comments}
       />
@@ -72,8 +74,8 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = ({ posts }) => ({
-  posts: posts.entities.posts,
+const mapStateToProps = ({ entities, posts }) => ({
+  posts: entities.posts,
   loading: posts.loading,
   fetched: posts.fetched
 });

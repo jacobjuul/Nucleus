@@ -15,11 +15,11 @@ import FeedItemSummary from './FeedItemSummary';
 type PropTypes =
   { title:     string
   , author:    Object
-  , summary:   string
+  , excerpt:   string
   , comments:  number
   , bookmarks: number };
 
-const FeedItem = ({ title, author, summary, comments, bookmarks }: PropTypes) => {
+const FeedItem = ({ title, author, excerpt, comments, bookmarks }: PropTypes) => {
   return (
     <View style={styles.container}>
       <View style={styles.topBar}>
@@ -32,7 +32,7 @@ const FeedItem = ({ title, author, summary, comments, bookmarks }: PropTypes) =>
         </View>
       </View>
 
-      <FeedItemSummary title={title} summary={summary} />
+      <FeedItemSummary title={title} summary={excerpt} />
 
       <View style={styles.footer}>
         <View><Text style={styles.footerText}>{comments} {pluralize('response', comments)}</Text></View>
