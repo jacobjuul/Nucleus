@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
-import R from 'ramda';
-import { normalize, schema } from 'normalizr';
-import * as types from '../constants/actionTypes';
+import R                   from 'ramda';
+import * as types          from '../constants/actionTypes';
 
 // normalizePosts :: [Object] -> Object
 const normalizePosts = R.indexBy(R.prop('id'));
