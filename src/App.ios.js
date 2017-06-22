@@ -66,7 +66,7 @@ class App extends Component {
           rightButtons: [{
             title: '',
             id: 'newsfeed.nav.search',
-            icon: require('./assets/icons/Bookmark.png')
+            icon: require('./assets/icons/bookmark-o.png')
           }]
         }
       }, {

@@ -1,7 +1,7 @@
 // @flow
-import React     from 'react';
-import moment    from 'moment';
-import R         from 'ramda';
+import React  from 'react';
+import moment from 'moment';
+import R      from 'ramda';
 import {
   View,
   Text,
@@ -9,10 +9,10 @@ import {
   TouchableHighlight,
   Image
 } from 'react-native';
-import pluralize from '../../utils/pluralize';
-import styles from './FeedItemStyles';
+import pluralize       from '../../utils/pluralize';
+import styles          from './FeedItemStyles';
 import FeedItemExcerpt from './FeedItemExcerpt';
-import FeedItemImage from './FeedItemImage';
+import FeedItemImage   from './FeedItemImage';
 
 type PropTypes =
   { title:     string
@@ -22,14 +22,17 @@ type PropTypes =
   , bookmarks: number };
 
 const FeedItem = ({ title, author, excerpt, comments, bookmarks, date, image }: PropTypes) => {
+  const emptyAuthorField = R.pathOr('', R.__, author);
+  const authorImage = emptyAuthorField(['image_url']);
+  const authorName = emptyAuthorField(['name']);
   return (
     <View style={styles.container}>
       <View style={styles.topBar}>
         <View style={styles.topBarLeft}>
-          <Image style={styles.avatar} source={require('../../assets/icons/logo.png')} />
+          <Image style={styles.avatar} source={{ uri: authorImage }} />
         </View>
         <View style={styles.topBarRight}>
-          <Text style={styles.author}>{R.pathOr('', ['email'], author)}</Text>
+          <Text style={styles.author}>{authorName}</Text>
           <Text style={styles.date}>{moment(date).format('d. MMMM')}</Text>
         </View>
       </View>
