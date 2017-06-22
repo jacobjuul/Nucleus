@@ -22,9 +22,9 @@ type PropTypes =
   , bookmarks: number };
 
 const FeedItem = ({ title, author, excerpt, comments, bookmarks, date, image }: PropTypes) => {
-  const emptyAuthorField = R.pathOr('', R.__, author);
-  const authorImage = emptyAuthorField(['image_url']);
-  const authorName = emptyAuthorField(['name']);
+  const getAuthorField = R.pathOr('', R.__, author);
+  const authorImage = getAuthorField(['image_url']);
+  const authorName = getAuthorField(['name']);
   return (
     <View style={styles.container}>
       <View style={styles.topBar}>
