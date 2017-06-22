@@ -46,6 +46,7 @@ const FeedItemStyles = StyleSheet.create({
   },
   readMore: {
     paddingTop: 15,
+    paddingBottom: 15,
     color: colors.muted,
     fontSize: 12
   },

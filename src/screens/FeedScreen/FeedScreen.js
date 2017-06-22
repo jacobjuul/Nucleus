@@ -7,7 +7,6 @@ import {
   StyleSheet, 
   View, 
   ActivityIndicator }       from 'react-native';
-
 import { colors, fonts }    from '../../constants/styles';
 import { fetchPosts }       from '../../actions/postActions';
 import FeedItem             from '../../components/FeedItem';
@@ -49,7 +48,7 @@ class FeedScreen extends Component {
         author={row.author}
         excerpt={row.excerpt}
         content={row.content}
-        bookmarks={row.bookmarks}
+        bookmarks={row.bookmark_users}
         comments={row.comments}
         date={row.publish_at}
         image={row.image_url}

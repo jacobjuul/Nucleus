@@ -65,6 +65,7 @@ module.exports = {
       2,
       "always"
     ],
+    "semi": [2, "never"],
     "flowtype/use-flow-type": 1,
     "flowtype/valid-syntax": 1,
     "import/no-extraneous-dependencies": 0,

@@ -1,41 +1,35 @@
 // @flow
-import React  from 'react';
-import moment from 'moment';
-import R      from 'ramda';
+import React  from 'react'
+import R      from 'ramda'
 import {
   View,
   Text,
   StyleSheet,
   TouchableHighlight,
   Image
-} from 'react-native';
-import pluralize       from '../../utils/pluralize';
-import styles          from './FeedItemStyles';
-import FeedItemExcerpt from './FeedItemExcerpt';
-import FeedItemImage   from './FeedItemImage';
+} from 'react-native'
+
+import styles          from './FeedItemStyles'
+import FeedItemHeader  from './FeedItemHeader'
+import FeedItemExcerpt from './FeedItemExcerpt'
+import FeedItemImage   from './FeedItemImage'
+import FeedItemFooter  from './FeedItemFooter'
 
 type PropTypes =
   { title:     string
   , author:    Object
   , excerpt:   string
   , comments:  number
-  , bookmarks: number };
+  , bookmarks: number }
 
 const FeedItem = ({ title, author, excerpt, comments, bookmarks, date, image }: PropTypes) => {
-  const getAuthorField = R.pathOr('', R.__, author);
-  const authorImage = getAuthorField(['image_url']);
-  const authorName = getAuthorField(['name']);
+  const getAuthorField = R.pathOr('', R.__, author)
+  const authorImage = getAuthorField(['image_url'])
+  const authorName = getAuthorField(['name'])
+  const defaultToZero = R.defaultTo(0)
   return (
     <View style={styles.container}>
-      <View style={styles.topBar}>
-        <View style={styles.topBarLeft}>
-          <Image style={styles.avatar} source={{ uri: authorImage }} />
-        </View>
-        <View style={styles.topBarRight}>
-          <Text style={styles.author}>{authorName}</Text>
-          <Text style={styles.date}>{moment(date).format('d. MMMM')}</Text>
-        </View>
-      </View>
+      <FeedItemHeader image={authorImage} name={authorName} date={date} />
       <Text style={styles.title}>{title}</Text>
       {
         image
@@ -45,12 +39,12 @@ const FeedItem = ({ title, author, excerpt, comments, bookmarks, date, image }: 
       <TouchableHighlight>
         <Text style={styles.readMore}>Read more</Text>
       </TouchableHighlight>
-      <View style={styles.footer}>
-        <View><Text style={styles.footerText}>{comments} {pluralize('response', comments)}</Text></View>
-        <View><Text style={styles.footerText}>{bookmarks} {pluralize('bookmark', bookmarks)}</Text></View>
-      </View>
+      <FeedItemFooter 
+        bookmarks={defaultToZero(bookmarks)} 
+        comments={defaultToZero(comments)} 
+      />
     </View>
-  );
-};
+  )
+}
 
-export default FeedItem;
+export default FeedItem
