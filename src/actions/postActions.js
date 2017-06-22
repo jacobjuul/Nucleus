@@ -1,6 +1,5 @@
-import axios from 'axios';
 import * as types from '../constants/actionTypes';
-import api from '../utils/apiHelper';
+import api        from '../utils/apiHelper';
 
 export const fetchPosts = () => async (dispatch) => {
   dispatch({ type: types.FETCH_POSTS });

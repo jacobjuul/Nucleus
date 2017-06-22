@@ -56,7 +56,9 @@ exports[`FeedItem renders correctly 1`] = `
             "fontSize": 15,
           }
         }
-      />
+      >
+        jacob.juul@gmail.com
+      </Text>
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -72,6 +74,21 @@ exports[`FeedItem renders correctly 1`] = `
       </Text>
     </View>
   </View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "black",
+        "fontSize": 25,
+        "fontWeight": "bold",
+        "marginBottom": 10,
+      }
+    }
+  >
+    Short Title
+  </Text>
   <View
     accessibilityComponentType={undefined}
     accessibilityLabel={undefined}
@@ -105,21 +122,6 @@ exports[`FeedItem renders correctly 1`] = `
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "black",
-            "fontSize": 25,
-            "fontWeight": "bold",
-            "marginBottom": 10,
-          }
-        }
-      >
-        Short Title
-      </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         numberOfLines={4}
         style={
           Object {
@@ -129,48 +131,48 @@ exports[`FeedItem renders correctly 1`] = `
           }
         }
       />
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            undefined,
-          ]
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "rgba(0,0,0,0.5)",
-              "fontSize": 12,
-              "paddingTop": 15,
-            }
-          }
-        >
-          Read more
-        </Text>
-      </View>
     </View>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        undefined,
+      ]
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "rgba(0,0,0,0.5)",
+          "fontSize": 12,
+          "paddingTop": 15,
+        }
+      }
+    >
+      Read more
+    </Text>
   </View>
   <View
     style={

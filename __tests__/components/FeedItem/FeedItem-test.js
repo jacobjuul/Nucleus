@@ -4,9 +4,12 @@ import FeedItem from '../../../src/components/FeedItem';
 
 describe('FeedItem', () => {
   it('renders correctly', () => {
+    const author = {
+      email: 'jacob.juul@gmail.com'
+    };
     const instance = renderer.create(
       <FeedItem
-        author="TestAuthor"
+        author={author}
         title="Short Title"
         bookmarks={4}
         comments={12}

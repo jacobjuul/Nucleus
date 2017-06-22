@@ -70,7 +70,7 @@ class App extends Component {
           }]
         }
       }, {
-        screen: 'nuke.notready',
+        screen: 'nuke.leadership',
         icon: require('./assets/icons/Users-deaktive.png'),
         selectedIcon: require('./assets/icons/Users-active.png'),
         title: 'Leadership',

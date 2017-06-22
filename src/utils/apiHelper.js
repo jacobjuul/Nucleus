@@ -11,5 +11,5 @@ export const get = collection => (search = '') =>
 
 export default {
   posts: get(POSTS),
-  users: get(USERS)
+  users: get(USERS),
 };

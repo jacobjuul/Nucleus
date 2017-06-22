@@ -1,12 +1,12 @@
 /* @flow */
-import React, { Component }           from 'react';
-import { connect }                    from 'react-redux';
-import R_valuesIn                     from 'ramda/src/valuesIn';
+import React, { Component } from 'react';
+import { connect }          from 'react-redux';
+import R_valuesIn           from 'ramda/src/valuesIn';
 import { 
   ListView, 
   StyleSheet, 
   View, 
-  ActivityIndicator }                 from 'react-native';
+  ActivityIndicator }       from 'react-native';
 
 import { colors, fonts }    from '../../constants/styles';
 import { fetchPosts }       from '../../actions/postActions';
@@ -51,6 +51,8 @@ class FeedScreen extends Component {
         content={row.content}
         bookmarks={row.bookmarks}
         comments={row.comments}
+        date={row.publish_at}
+        image={row.image_url}
       />
     );
   }
