@@ -19,7 +19,7 @@ class FeedScreen extends Component {
   state: StateType
   state = {
     dataSource: new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
-  } 
+  }
 
   componentDidMount() {
     this.props.fetchPosts()
