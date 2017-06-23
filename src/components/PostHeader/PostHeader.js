@@ -11,7 +11,6 @@ type PropTypes =
   , dateFormat?: string }
 
 const PostHeader = ({ name, image, date, dateFormat }: PropTypes) => {
-
   return (
     <View style={styles.container}>
       <View>

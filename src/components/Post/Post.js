@@ -1,5 +1,8 @@
 import React          from 'react'
-import { View, Text } from 'react-native'
+import { 
+  View, 
+  Text, 
+  ActivityIndicator } from 'react-native'
 import styles         from './PostStyle'
 import * as appStyles from '../../constants/styles'
 import PostHeader     from '../PostHeader'
