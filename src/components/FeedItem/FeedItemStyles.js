@@ -6,6 +6,7 @@ const FeedItemStyles = StyleSheet.create({
     marginBottom: 15,
     paddingLeft: 15,
     paddingRight: 15,
+    paddingTop: 18,
     backgroundColor: 'white'
   },
   content: {

@@ -6,7 +6,6 @@ const PostHeaderStyles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    paddingTop: 22,
     paddingBottom: 20,
   },
   author: {
