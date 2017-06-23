@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import R                    from 'ramda'
 import {
   VirtualizedList,
+  View,
   StyleSheet }              from 'react-native'
 import { connect }          from 'react-redux'
 import { fetchUsers }       from '../../actions/userActions'
@@ -19,11 +20,14 @@ class LeadershipScreen extends Component {
         id={item.id}
         name={item.name}
         title={item.title}
+        image={item.image_url}
+        country={item.country}
       />
     )
   }
 
   keyExtractor = ({ id }) => id
+  renderSeparator = () => <View style={styles.separator} />
 
   render() {
     return (
@@ -34,6 +38,7 @@ class LeadershipScreen extends Component {
         refreshing={this.props.loading}
         onRefresh={this.props.fetchUsers}
         keyExtractor={this.keyExtractor}
+        ItemSeparatorComponent={this.renderSeparator}
       />
     )
   }
@@ -44,12 +49,17 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.primary,
   },
+  separator: {
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderColor: '#E0E5E5',
+  }
 })
 
 const removeAdmins = R.pickBy(v => !v.admin)
 
 const mapStateToProps = ({ entities, users }) => ({
   users: removeAdmins(entities.users),
+  // users: entities.users,
   loading: users.loading,
   fetched: users.fetched
 })
