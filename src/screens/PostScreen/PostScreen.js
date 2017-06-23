@@ -14,7 +14,8 @@ const bookmarks = R.compose(R.length, pathOrList(['post', 'bookmark_users']))
 
 class PostScreen extends Component {
   static navigatorStyle = {
-    tabBarHidden: true
+    tabBarHidden: true,
+    navBarLeftButtonFontWeight: '100',
   }
 
   render() {

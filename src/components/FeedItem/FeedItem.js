@@ -40,7 +40,7 @@ const FeedItem = ({ id, title, author, excerpt, comments, bookmarks, date, image
         ? <PostImage source={image} />
         : <FeedItemExcerpt title={title} excerpt={excerpt} />
       }
-      <TouchableHighlight onPress={handlePress}>
+      <TouchableHighlight onPress={handlePress} style={styles.readMoreContainer}>
         <Text style={styles.readMore}>Read more</Text>
       </TouchableHighlight>
       <FeedItemFooter 

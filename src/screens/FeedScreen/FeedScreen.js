@@ -41,8 +41,8 @@ class FeedScreen extends Component {
     this.props.navigator.push({
       screen: 'nuke.postscreen',
       passProps: { postId },
-      backButtonTitle: '',
-    });
+      backButtonTitle: ''
+    })
   }
 
   renderRow = (row) => {
