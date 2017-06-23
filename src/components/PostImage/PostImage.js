@@ -1,7 +1,11 @@
-import React     from 'react'
-import { Image } from 'react-native'
+import React            from 'react'
+import {
+   Image,
+   TouchableHighlight } from 'react-native'
 
-const PostImage = ({ source }) =>
-  <Image source={{ uri: source }} style={{ height: 200 }} resizeMode="contain" />
+const PostImage = ({ source, onPress }) =>
+  <TouchableHighlight onPress={onPress}>
+    <Image source={{ uri: source }} style={{ height: 200 }} resizeMode="contain" />
+  </TouchableHighlight>
 
 export default PostImage

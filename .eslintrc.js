@@ -1,4 +1,5 @@
 module.exports = {
+  "parser": "babel-eslint",
   "extends": "airbnb",
   "plugins": [
     "react",
@@ -11,6 +12,7 @@ module.exports = {
     "babel/object-shorthand": 1,
     "eqeqeq": ["error", "smart"],
     "react/sort-comp": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "meteor/audit-argument-checks": 0,
     "flowtype/boolean-style": [
       2,
