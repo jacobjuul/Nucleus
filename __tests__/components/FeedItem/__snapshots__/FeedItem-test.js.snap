@@ -3,19 +3,23 @@
 exports[`FeedItem renders correctly 1`] = `
 <View
   style={
-    Object {
-      "backgroundColor": "white",
-      "marginBottom": 15,
-      "paddingLeft": 15,
-      "paddingRight": 15,
-      "shadowColor": "black",
-      "shadowOffset": Object {
-        "height": 4,
-        "width": 0,
+    Array [
+      Object {
+        "backgroundColor": "white",
+        "marginBottom": 15,
+        "paddingLeft": 15,
+        "paddingRight": 15,
       },
-      "shadowOpacity": 0.5,
-      "shadowRadius": 6,
-    }
+      Object {
+        "shadowColor": "black",
+        "shadowOffset": Object {
+          "height": 4,
+          "width": 0,
+        },
+        "shadowOpacity": 0.5,
+        "shadowRadius": 6,
+      },
+    ]
   }
 >
   <View
@@ -29,11 +33,13 @@ exports[`FeedItem renders correctly 1`] = `
       }
     }
   >
-    <View
-      style={Object {}}
-    >
+    <View>
       <Image
-        source={1}
+        source={
+          Object {
+            "uri": "",
+          }
+        }
         style={
           Object {
             "height": 32,
@@ -43,9 +49,7 @@ exports[`FeedItem renders correctly 1`] = `
         }
       />
     </View>
-    <View
-      style={Object {}}
-    >
+    <View>
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -57,7 +61,7 @@ exports[`FeedItem renders correctly 1`] = `
           }
         }
       >
-        jacob.juul@gmail.com
+        
       </Text>
       <Text
         accessible={true}
@@ -70,7 +74,7 @@ exports[`FeedItem renders correctly 1`] = `
           }
         }
       >
-        5. June
+        4. June
       </Text>
     </View>
   </View>
@@ -167,6 +171,7 @@ exports[`FeedItem renders correctly 1`] = `
         Object {
           "color": "rgba(0,0,0,0.5)",
           "fontSize": 12,
+          "paddingBottom": 15,
           "paddingTop": 15,
         }
       }
@@ -187,37 +192,67 @@ exports[`FeedItem renders correctly 1`] = `
       }
     }
   >
-    <View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Image
+        source={1}
+      />
       <Text
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Object {
-            "fontSize": 12,
-          }
+          Array [
+            Object {
+              "fontSize": 12,
+            },
+            Object {
+              "paddingLeft": 10,
+            },
+          ]
         }
       >
-        12
          
         responses
       </Text>
     </View>
-    <View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
       <Text
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Object {
-            "fontSize": 12,
-          }
+          Array [
+            Object {
+              "fontSize": 12,
+            },
+            Object {
+              "paddingRight": 10,
+            },
+          ]
         }
       >
-        4
          
         bookmarks
       </Text>
+      <Image
+        source={1}
+      />
     </View>
   </View>
 </View>

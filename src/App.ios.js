@@ -66,7 +66,7 @@ class App extends Component {
           rightButtons: [{
             title: '',
             id: 'newsfeed.nav.search',
-            icon: require('./assets/icons/bookmark-o.png')
+            icon: require('./assets/icons/Bookmark.png')
           }]
         }
       }, {
@@ -94,20 +94,20 @@ class App extends Component {
         iconInsets,
         navigatorButtons
       }],
-      drawer: { // optional, add this if you want a side menu drawer in your app
-        left: { // optional, define if you want a drawer from the left
-          screen: 'nuke.notready', // unique ID registered with Navigation.registerScreen
-          passProps: {} // simple serializable object that will pass as props to all top screens (optional)
-        },
-        right: { // optional, define if you want a drawer from the right
-          screen: 'nuke.notready', // unique ID registered with Navigation.registerScreen
-          passProps: {} // simple serializable object that will pass as props to all top screens (optional)
-        },
-        style: {
-          leftDrawerWidth: '90%',
-        },
-        disableOpenGesture: false // optional, can the drawer be opened with a swipe instead of button
-      },
+      // drawer: { // optional, add this if you want a side menu drawer in your app
+      //   left: { // optional, define if you want a drawer from the left
+      //     screen: 'nuke.notready', // unique ID registered with Navigation.registerScreen
+      //     passProps: {} // simple serializable object that will pass as props to all top screens (optional)
+      //   },
+      //   right: { // optional, define if you want a drawer from the right
+      //     screen: 'nuke.notready', // unique ID registered with Navigation.registerScreen
+      //     passProps: {} // simple serializable object that will pass as props to all top screens (optional)
+      //   },
+      //   style: {
+      //     leftDrawerWidth: '90%',
+      //   },
+      //   disableOpenGesture: false // optional, can the drawer be opened with a swipe instead of button
+      // },
       tabsStyle: {
         tabBarButtonColor: 'rgba(255,255,255,0.9)',
         tabBarSelectedButtonColor: 'none',

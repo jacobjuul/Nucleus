@@ -1,1 +1,1 @@
-export { default } from './FeedScreen';
+export { default } from './FeedScreen'

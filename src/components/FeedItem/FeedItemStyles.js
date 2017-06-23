@@ -1,27 +1,12 @@
-import { StyleSheet } from 'react-native';
-import { colors }     from '../../constants/styles';
+import { StyleSheet } from 'react-native'
+import { colors }     from '../../constants/styles'
 
 const FeedItemStyles = StyleSheet.create({
   container: {
-    shadowOffset: { width: 0, height: 4 },
-    shadowColor: 'black',
-    shadowRadius: 6,
-    shadowOpacity: 0.5,
     marginBottom: 15,
     paddingLeft: 15,
     paddingRight: 15,
     backgroundColor: 'white'
-  },
-  topBar: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingTop: 22,
-    paddingBottom: 20,
-  },
-  topBarLeft: {
-  },
-  topBarRight: {
   },
   content: {
     paddingBottom: 16
@@ -35,9 +20,16 @@ const FeedItemStyles = StyleSheet.create({
     borderTopWidth: StyleSheet.hairlineWidth,
     borderColor: '#E0E5E5'
   },
-  footerText: {
-    fontSize: 12
+  footerSection: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center'
   },
+  footerText: {
+    fontSize: 12,
+  },
+  footerPaddingLeft: { paddingLeft: 10 },
+  footerPaddingRight: { paddingRight: 10 },
   title: {
     color: 'black',
     fontSize: 25,
@@ -50,24 +42,11 @@ const FeedItemStyles = StyleSheet.create({
     color: colors.muted,
     fontSize: 12
   },
-  author: {
-    fontSize: 15,
-    color: colors.secondary
-  },
-  date: {
-    color: colors.muted,
-    fontSize: 12,
-  },
   summary: {
     fontSize: 18,
     fontFamily: 'Helvetica Neue',
     lineHeight: 28
-  },
-  avatar: {
-    height: 32,
-    width: 32,
-    marginRight: 10
   }
-});
+})
 
-export default FeedItemStyles;
+export default FeedItemStyles
