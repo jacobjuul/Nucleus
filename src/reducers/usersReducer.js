@@ -6,9 +6,9 @@ const initialState = {
   error: undefined
 }
 
-export const postsReducer = (state = initialState, action: Object) => {
+export const usersReducer = (state = initialState, action: Object) => {
   switch(action.type) {
-    case types.FETCH_POSTS: {
+    case types.FETCH_USERS: {
       return {
         ...state,
         loading: true,
@@ -16,14 +16,14 @@ export const postsReducer = (state = initialState, action: Object) => {
       }
     }
 
-    case types.FETCH_POSTS_SUCCESS: {
+    case types.FETCH_USERS_SUCCESS: {
       return {
         loading: false,
         fetched: true,
       }
     }
 
-    case types.FETCH_POSTS_FAILURE: {
+    case types.FETCH_USERS_FAILURE: {
       return {
         ...state,
         loading: false,
@@ -38,4 +38,4 @@ export const postsReducer = (state = initialState, action: Object) => {
   }
 }
 
-export default postsReducer
+export default usersReducer

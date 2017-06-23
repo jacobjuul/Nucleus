@@ -1,13 +1,13 @@
 // @flow
-import { combineReducers } from 'redux';
-import session             from './sessionReducer';
-import posts               from './postsReducer';
-import entities            from './entitiesReducer';
+import { combineReducers } from 'redux'
+import users               from './usersReducer'
+import posts               from './postsReducer'
+import entities            from './entitiesReducer'
 
 const rootReducer = combineReducers({
-  session,
+  users,
   posts,
   entities
-});
+})
 
-export default rootReducer;
+export default rootReducer

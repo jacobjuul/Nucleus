@@ -1,40 +1,19 @@
 /* @flow */
-import React, { Component } from 'react';
-import { connect }          from 'react-redux';
-import R_valuesIn           from 'ramda/src/valuesIn';
+import React, { Component } from 'react'
+import { connect }          from 'react-redux'
+import R_valuesIn           from 'ramda/src/valuesIn'
 import { 
-  ListView, 
-  StyleSheet, 
-  View, 
-  ActivityIndicator }       from 'react-native';
-import { colors, fonts }    from '../../constants/styles';
-import { fetchPosts }       from '../../actions/postActions';
-import FeedItem             from '../../components/FeedItem';
-
-type StateType = {
-  dataSource: Object[]
-};
+  VirtualizedList,
+  StyleSheet,
+  View,
+  ActivityIndicator }       from 'react-native'
+import { colors }           from '../../constants/styles'
+import { fetchPosts }       from '../../actions/postActions'
+import FeedItem             from '../../components/FeedItem'
 
 class FeedScreen extends Component {
-  state: StateType
-  state = {
-    dataSource: new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
-  }
-
   componentDidMount() {
     this.props.fetchPosts()
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.fetched && nextProps.posts !== this.props.posts) {
-      this.setDataSource(nextProps.posts)
-    }
-  }
-
-  setDataSource = (posts) => {
-    this.setState({ 
-      dataSource: this.state.dataSource.cloneWithRows(R_valuesIn(posts))
-    })
   }
 
   handlePress = (postId) => {
@@ -45,18 +24,19 @@ class FeedScreen extends Component {
     })
   }
 
-  renderRow = (row) => {
+  renderItem = ({ item }) => {
     return (
       <FeedItem
-        id={row.id}
-        title={row.title}
-        author={row.author}
-        excerpt={row.excerpt}
-        content={row.content}
-        bookmarks={row.bookmark_users}
-        comments={row.comments}
-        date={row.publish_at}
-        image={row.image_url}
+        key={item.id}
+        id={item.id}
+        title={item.title}
+        author={item.author}
+        excerpt={item.excerpt}
+        content={item.content}
+        bookmarks={item.bookmark_users}
+        comments={item.comments}
+        date={item.publish_at}
+        image={item.image_url}
         onPress={this.handlePress}
       />
     )
@@ -69,12 +49,12 @@ class FeedScreen extends Component {
 
     if (this.props.fetched) {
       return (
-        <ListView
+        <VirtualizedList
           style={styles.container}
-          dataSource={this.state.dataSource}
-          renderRow={this.renderRow}
+          data={R_valuesIn(this.props.posts)}
+          renderItem={this.renderItem}
         />
-      );
+      )
     }
 
     return <View style={styles.container} />;
