@@ -34,7 +34,9 @@ const FeedItem = ({ id, title, author, excerpt, comments, bookmarks, date, image
   return (
     <View style={[styles.container, appStyles.effects.boxShadow]}>
       <PostHeader image={authorImage} name={authorName} date={date} />
-      <Text style={appStyles.headings.h1}>{title}</Text>
+      <TouchableHighlight onPress={handlePress}>
+        <Text style={appStyles.headings.h1}>{title}</Text>
+      </TouchableHighlight>
       {
         image
         ? <PostImage source={image} />
