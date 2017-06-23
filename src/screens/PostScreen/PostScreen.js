@@ -12,8 +12,9 @@ import PostComments         from '../../components/PostComments'
 import PostSnackbar         from '../../components/PostSnackbar'
 
 const pathOrList = R.pathOr([])
+const comments = pathOrList(['post', 'comments'])
 const numberOfbookmarks = R.memoize(R.compose(R.length, pathOrList(['post', 'bookmark_users'])))
-const numberOfcomments = R.memoize(R.compose(R.length, pathOrList(['post', 'comments'])))
+const numberOfcomments = R.memoize(R.compose(R.length, comments))
 
 class PostScreen extends Component {
   static navigatorStyle = {
