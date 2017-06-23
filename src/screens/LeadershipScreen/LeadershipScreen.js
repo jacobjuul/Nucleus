@@ -1,55 +1,50 @@
 import React, { Component } from 'react'
 import R                    from 'ramda'
-import { 
-  ListView, 
-  StyleSheet, 
-  View,
-  Text,
-  ActivityIndicator }       from 'react-native'
+import {
+  VirtualizedList,
+  StyleSheet }              from 'react-native'
 import { connect }          from 'react-redux'
 import { fetchUsers }       from '../../actions/userActions'
 import LeaderListItem       from '../../components/LeaderListItem'
+import { colors }           from '../../constants/styles'
 
 class LeadershipScreen extends Component {
-  state = {
-    dataSource: new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
-  }
-
   componentDidMount() {
     this.props.fetchUsers()
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.fetched && nextProps.users !== this.props.users) {
-      this.setDataSource(nextProps.users)
-    }
-  }
-
-  setDataSource = (users) => {
-    this.setState({ 
-      dataSource: this.state.dataSource.cloneWithRows(R.valuesIn(users))
-    })
-  }
-
-  renderRow = (row) => {
+  renderItem = ({ item }) => {
     return (
       <LeaderListItem
-        id={row.id}
-        name={row.name}
-        title={row.title}
+        id={item.id}
+        name={item.name}
+        title={item.title}
       />
     )
   }
 
+  keyExtractor = ({ id }) => id
+
   render() {
     return (
-      <ListView
-        dataSource={this.state.dataSource}
-        renderRow={this.renderRow}
+      <VirtualizedList
+        style={styles.container}
+        data={R.valuesIn(this.props.users)}
+        renderItem={this.renderItem}
+        refreshing={this.props.loading}
+        onRefresh={this.props.fetchUsers}
+        keyExtractor={this.keyExtractor}
       />
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.primary,
+  },
+})
 
 const removeAdmins = R.pickBy(v => !v.admin)
 

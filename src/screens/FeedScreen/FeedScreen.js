@@ -4,9 +4,7 @@ import { connect }          from 'react-redux'
 import R_valuesIn           from 'ramda/src/valuesIn'
 import { 
   VirtualizedList,
-  StyleSheet,
-  View,
-  ActivityIndicator }       from 'react-native'
+  StyleSheet }              from 'react-native'
 import { colors }           from '../../constants/styles'
 import { fetchPosts }       from '../../actions/postActions'
 import FeedItem             from '../../components/FeedItem'
@@ -24,10 +22,13 @@ class FeedScreen extends Component {
     })
   }
 
+  keyExtractor = ({ id }) => {
+    return id
+  }
+
   renderItem = ({ item }) => {
     return (
       <FeedItem
-        key={item.id}
         id={item.id}
         title={item.title}
         author={item.author}
@@ -43,21 +44,16 @@ class FeedScreen extends Component {
   }
 
   render() {
-    if (this.props.loading) {
-      return <ActivityIndicator style={styles.container} color="white" />
-    }
-
-    if (this.props.fetched) {
-      return (
-        <VirtualizedList
-          style={styles.container}
-          data={R_valuesIn(this.props.posts)}
-          renderItem={this.renderItem}
-        />
-      )
-    }
-
-    return <View style={styles.container} />;
+    return (
+      <VirtualizedList
+        style={styles.container}
+        data={R_valuesIn(this.props.posts)}
+        renderItem={this.renderItem}
+        refreshing={this.props.loading}
+        onRefresh={this.props.fetchPosts}
+        keyExtractor={this.keyExtractor}
+      />
+    )
   }
 }
 
