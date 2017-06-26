@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { connect }          from 'react-redux'
 import R_valuesIn           from 'ramda/src/valuesIn'
-import { 
+import {
   VirtualizedList,
   StyleSheet }              from 'react-native'
 import { colors }           from '../../constants/styles'
@@ -14,34 +14,29 @@ class FeedScreen extends Component {
     this.props.fetchPosts()
   }
 
-  handlePress = (postId) => {
+  handlePress = postId =>
     this.props.navigator.push({
       screen: 'nuke.postscreen',
       passProps: { postId },
       backButtonTitle: ''
     })
-  }
 
-  keyExtractor = ({ id }) => {
-    return id
-  }
+  keyExtractor = ({ id }) => id
 
-  renderItem = ({ item }) => {
-    return (
-      <FeedItem
-        id={item.id}
-        title={item.title}
-        author={item.author}
-        excerpt={item.excerpt}
-        content={item.content}
-        bookmarks={item.bookmark_users}
-        comments={item.comments}
-        date={item.publish_at}
-        image={item.image_url}
-        onPress={this.handlePress}
-      />
-    )
-  }
+  renderItem = ({ item }) => (
+    <FeedItem
+      id={item.id}
+      title={item.title}
+      author={item.author}
+      excerpt={item.excerpt}
+      content={item.content}
+      bookmarks={item.bookmark_users}
+      comments={item.comments}
+      date={item.publish_at}
+      image={item.image_url}
+      onPress={this.handlePress}
+    />
+  )
 
   render() {
     return (

@@ -9,6 +9,7 @@ exports[`FeedItem renders correctly 1`] = `
         "marginBottom": 15,
         "paddingLeft": 15,
         "paddingRight": 15,
+        "paddingTop": 18,
       },
       Object {
         "shadowColor": "black",
@@ -29,7 +30,6 @@ exports[`FeedItem renders correctly 1`] = `
         "display": "flex",
         "flexDirection": "row",
         "paddingBottom": 20,
-        "paddingTop": 22,
       }
     }
   >
@@ -74,25 +74,52 @@ exports[`FeedItem renders correctly 1`] = `
           }
         }
       >
-        5. June
+        1. June
       </Text>
     </View>
   </View>
-  <Text
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
     accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Object {
-        "color": "black",
-        "fontSize": 25,
-        "fontWeight": "bold",
-        "marginBottom": 10,
-      }
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        undefined,
+      ]
     }
+    testID={undefined}
+    tvParallaxProperties={undefined}
   >
-    Short Title
-  </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "black",
+          "fontSize": 25,
+          "fontWeight": "bold",
+          "marginBottom": 10,
+        }
+      }
+    >
+      Short Title
+    </Text>
+  </View>
   <View
     accessibilityComponentType={undefined}
     accessibilityLabel={undefined}
@@ -157,7 +184,11 @@ exports[`FeedItem renders correctly 1`] = `
         Object {
           "backgroundColor": "transparent",
         },
-        undefined,
+        Object {
+          "paddingBottom": 15,
+          "paddingTop": 15,
+          "width": "30%",
+        },
       ]
     }
     testID={undefined}
@@ -171,8 +202,6 @@ exports[`FeedItem renders correctly 1`] = `
         Object {
           "color": "rgba(0,0,0,0.5)",
           "fontSize": 12,
-          "paddingBottom": 15,
-          "paddingTop": 15,
         }
       }
     >

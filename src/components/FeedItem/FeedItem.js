@@ -11,7 +11,7 @@ import {
 
 import styles          from './FeedItemStyles'
 import * as appStyles  from '../../constants/styles'
-import PostHeader      from '../PostHeader'
+import AuthorBar      from '../AuthorBar'
 import FeedItemExcerpt from './FeedItemExcerpt'
 import PostImage       from '../PostImage'
 import FeedItemFooter  from './FeedItemFooter'
@@ -33,7 +33,7 @@ const FeedItem = ({ id, title, author, excerpt, comments, bookmarks, date, image
 
   return (
     <View style={[styles.container, appStyles.effects.boxShadow]}>
-      <PostHeader image={authorImage} name={authorName} date={date} />
+      <AuthorBar image={authorImage} name={authorName} date={date} />
       <TouchableHighlight onPress={handlePress}>
         <Text style={appStyles.headings.h1}>{title}</Text>
       </TouchableHighlight>
@@ -45,9 +45,9 @@ const FeedItem = ({ id, title, author, excerpt, comments, bookmarks, date, image
       <TouchableHighlight onPress={handlePress} style={styles.readMoreContainer}>
         <Text style={styles.readMore}>Read more</Text>
       </TouchableHighlight>
-      <FeedItemFooter 
-        bookmarks={defaultToList(bookmarks)} 
-        comments={defaultToList(comments)} 
+      <FeedItemFooter
+        bookmarks={defaultToList(bookmarks)}
+        comments={defaultToList(comments)}
       />
     </View>
   )

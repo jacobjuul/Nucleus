@@ -2,7 +2,7 @@
 import React                 from 'react'
 import moment                from 'moment'
 import { View, Image, Text } from 'react-native'
-import styles                from './PostHeaderStyles'
+import styles                from './AuthorBarStyles'
 
 type PropTypes =
   { name: string
@@ -10,7 +10,7 @@ type PropTypes =
   , date: Date
   , dateFormat?: string }
 
-const PostHeader = ({ name, image, date, dateFormat }: PropTypes) => {
+const AuthorBar = ({ name, image, date, dateFormat }: PropTypes) => {
   return (
     <View style={styles.container}>
       <View>
@@ -24,11 +24,11 @@ const PostHeader = ({ name, image, date, dateFormat }: PropTypes) => {
   )
 }
 
-PostHeader.defaultProps = {
+AuthorBar.defaultProps = {
   dateFormat: 'd. MMMM',
   name: '',
   image: '',
   date: new Date()
 }
 
-export default PostHeader
+export default AuthorBar

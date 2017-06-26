@@ -3,13 +3,13 @@ import {
   View,
   Text,
   StyleSheet } from 'react-native'
-import PostHeader from '../PostHeader'
+import AuthorBar from '../AuthorBar'
 import { effects } from '../../constants/styles'
 
 const Comment = ({ content, user, date }) => {
   return (
     <View style={[styles.container, effects.boxShadow]}>
-      <PostHeader name={user.name} image={user.image_url} date={date} />
+      <AuthorBar name={user.name} image={user.image_url} date={date} />
       <Text>{content}</Text>
     </View>
   )

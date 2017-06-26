@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 import { colors }     from '../../constants/styles'
 
-const PostHeaderStyles = StyleSheet.create({
+const AuthorBar = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'row',
@@ -23,4 +23,4 @@ const PostHeaderStyles = StyleSheet.create({
   }
 })
 
-export default PostHeaderStyles
+export default AuthorBar
