@@ -10,6 +10,21 @@ import { fetchPosts }       from '../../actions/postActions'
 import FeedItem             from '../../components/FeedItem'
 
 class FeedScreen extends Component {
+  constructor(props) {
+    super(props)
+    props.navigator.setOnNavigatorEvent(this.onNavigatorEvent)
+  }
+
+  onNavigatorEvent = (event) => {
+    if (event.type === 'NavBarButtonPress') {
+      if (event.id === 'newsfeed.nav.search') {
+        this.props.navigator.showModal({
+          screen: 'nuke.posts.searchscreen'
+        })
+      }
+    }
+  }
+
   componentDidMount() {
     this.props.fetchPosts()
   }
@@ -22,7 +37,6 @@ class FeedScreen extends Component {
     })
 
   keyExtractor = ({ id }) => id
-
   renderItem = ({ item }) => (
     <FeedItem
       id={item.id}

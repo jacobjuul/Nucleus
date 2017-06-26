@@ -5,7 +5,9 @@ import {
   View,
   ScrollView,
   ActivityIndicator }       from 'react-native'
-import { defaultScreen }    from '../../constants/styles'
+import {
+  defaultScreen,
+  navigatorStyle }          from '../../constants/styles'
 
 import Post                 from '../../components/Post'
 import PostComments         from '../../components/PostComments'
@@ -22,6 +24,16 @@ class PostScreen extends Component {
     navBarLeftButtonFontWeight: '100',
   }
 
+  handleWriteComment = () => {
+    this.props.navigator.showModal({
+      screen: 'nuke.writecomment',
+      passProps: { postId: this.props.postId },
+      backButtonTitle: '',
+      animationType: 'slide-up',
+      navigatorStyle
+    })
+  }
+
   render() {
     if (!this.props.post) {
       return <ActivityIndicator />
@@ -30,7 +42,7 @@ class PostScreen extends Component {
       <View style={defaultScreen.container}>
         <ScrollView>
           <Post post={this.props.post} />
-          <PostComments comments={comments(this.props)} />
+          <PostComments comments={comments(this.props)} onHeaderTouch={this.handleWriteComment} />
         </ScrollView>
         <PostSnackbar
           bookmarks={numberOfbookmarks(this.props)}
@@ -42,7 +54,7 @@ class PostScreen extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  post: state.entities.posts[ownProps.postId]
+  post: state.entities.posts[ownProps.postId],
 })
 
 export default connect(mapStateToProps, null)(PostScreen)

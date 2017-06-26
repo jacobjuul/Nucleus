@@ -2,6 +2,7 @@ module.exports = {
   "parser": "babel-eslint",
   "extends": "airbnb",
   "plugins": [
+    "flowtype",
     "react",
     "jsx-a11y",
     "import"
@@ -9,7 +10,7 @@ module.exports = {
   "rules": {
     "comma-dangle": 0,
     "no-underscore-dangle": 0,
-    "babel/object-shorthand": 1,
+    "no-use-before-define": 0,
     "eqeqeq": ["error", "smart"],
     "react/sort-comp": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
@@ -42,7 +43,7 @@ module.exports = {
         "annotateUndefined": "never"
       }
     ],
-    "flowtype/require-valid-file-annotation": 2,
+    "flowtype/require-valid-file-annotation": [2, "never"],
     "flowtype/semi": [
       2,
       "always"

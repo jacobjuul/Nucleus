@@ -10,6 +10,20 @@ export const colors = {
   tabBar: 'black'
 }
 
+export const navigatorStyle = {
+  navBarTranslucent: false,
+  navBarBackgroundColor: colors.primary,
+  drawUnderNavBar: false,
+  navBarTextColor: 'white',
+  navBarButtonColor: 'white',
+  navBarButtonFontWeight: '100',
+  statusBarTextColorScheme: 'light',
+  drawUnderTabBar: false,
+  navBarTextFontSize: 13,
+  navBarTextFontWeight: '500',
+  navBarNoBorder: true
+}
+
 export const effects = StyleSheet.create({
   boxShadow: {
     shadowOffset: { width: 0, height: 4 },

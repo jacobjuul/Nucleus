@@ -1,9 +1,9 @@
-import React   from 'react'
+import React       from 'react'
 import {
   View,
   Text,
-  StyleSheet } from 'react-native'
-import AuthorBar from '../AuthorBar'
+  StyleSheet }     from 'react-native'
+import AuthorBar   from '../AuthorBar'
 import { effects } from '../../constants/styles'
 
 const Comment = ({ content, user, date }) => {

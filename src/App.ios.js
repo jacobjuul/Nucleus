@@ -1,28 +1,14 @@
 /* eslint-disable no-unused-vars */
-import React, { Component }   from 'react'
-import { Provider, connect }  from 'react-redux'
-import { Navigation }         from 'react-native-navigation'
-import { registerScreens }    from './screens/registerScreens'
-import configureStore         from './store/configureStore'
-import { colors }             from './constants/styles'
+import React, { Component }       from 'react'
+import { Provider, connect }      from 'react-redux'
+import { Navigation }             from 'react-native-navigation'
+import { registerScreens }        from './screens/registerScreens'
+import configureStore             from './store/configureStore'
+import { colors, navigatorStyle } from './constants/styles'
 
 const store = configureStore()
 
 registerScreens(store, Provider)
-
-const navigatorStyle = {
-  navBarTranslucent: false,
-  navBarBackgroundColor: colors.primary,
-  drawUnderNavBar: false,
-  navBarTextColor: 'white',
-  navBarButtonColor: 'white',
-  navBarButtonFontWeight: '100',
-  statusBarTextColorScheme: 'light',
-  drawUnderTabBar: false,
-  navBarTextFontSize: 13,
-  navBarTextFontWeight: '500',
-  navBarNoBorder: true
-}
 
 const iconInsets = { // add this to change icon position (optional, iOS only).
   top: 6, // optional, default is 0.
@@ -38,23 +24,6 @@ class App extends Component {
   }
 
   startApp() {
-    const navigatorButtons = {
-      rightButtons: [
-        {
-          title: '',
-          id: 'navbar.search',
-          // icon: require('./assets/icons/'),
-        }
-      ],
-      leftButtons: [
-        {
-          title: '',
-          id: 'navbar.bookmarks',
-          // icon: '',
-        }
-      ]
-    }
-
     Navigation.startTabBasedApp({
       tabs: [{
         screen: 'nuke.feed',
@@ -68,6 +37,11 @@ class App extends Component {
             title: '',
             id: 'newsfeed.nav.bookmark',
             icon: require('./assets/icons/Bookmark.png')
+          }],
+          leftButtons: [{
+            title: '',
+            id: 'newsfeed.nav.search',
+            icon: require('./assets/icons/Search.png')
           }]
         }
       }, {
@@ -76,24 +50,21 @@ class App extends Component {
         selectedIcon: require('./assets/icons/Users-active.png'),
         title: 'Leadership',
         navigatorStyle,
-        iconInsets,
-        navigatorButtons
+        iconInsets
       }, {
         screen: 'nuke.notready',
         icon: require('./assets/icons/toolbox-deactive.png'),
         selectedIcon: require('./assets/icons/toolbox-active.png'),
         title: 'Toolbox',
         navigatorStyle,
-        iconInsets,
-        navigatorButtons
+        iconInsets
       }, {
         screen: 'nuke.notready',
         icon: require('./assets/icons/meetings-deactive.png'),
         selectedIcon: require('./assets/icons/meetings-active.png'),
         title: 'Quarterly Meetings',
         navigatorStyle,
-        iconInsets,
-        navigatorButtons
+        iconInsets
       }],
       tabsStyle: {
         tabBarButtonColor: 'rgba(255,255,255,0.9)',
