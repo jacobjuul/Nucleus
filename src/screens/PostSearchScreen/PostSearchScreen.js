@@ -4,24 +4,19 @@ import { View, Text }     from 'react-native'
 import R                  from 'ramda'
 import { navigatorStyle } from '../../constants/styles'
 
-const isButtonPress = R.compose(R.equals('NavBarButtonPress'), R.prop('type'))
-const isClose = R.compose(R.equals('search.close'), R.prop('id'))
+const ifButtonPress = action =>
+  R.when(
+    R.propEq('type', 'NavBarButtonPress'),
+    action
+  )
 
 const PostSearchScreen = ({ navigator }) => {
-
-  const onNavigatorEvent = (event) => {
-    if (event.type === 'NavBarButtonPress') {
-      if (event.id === 'search.close') {
-        navigator.dismissModal()
-      }
-
-      if (event.id === 'search.clear') {
-        // clear input field
-      }
-    }
+  const onNavigatorEvent = event => {
+    if (event.id === 'search.close') navigator.dismissModal()
+    if (event.id === 'search.clear') console.log('clear')
   }
 
-  navigator.setOnNavigatorEvent(onNavigatorEvent)
+  navigator.setOnNavigatorEvent(ifButtonPress(onNavigatorEvent))
   return (
     <View>
       <Text>SearchScreen</Text>
