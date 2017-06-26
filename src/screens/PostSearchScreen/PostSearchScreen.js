@@ -12,12 +12,12 @@ const ifButtonPress = action =>
   )
 
 const PostSearchScreen = ({ navigator }) => {
-  const navBarAction = event => {
+  const closeOrClear = event => {
     if (event.id === 'search.close') navigator.dismissModal()
     if (event.id === 'search.clear') console.log('clear')
   }
 
-  const navigatorEvents = ifButtonPress(navBarAction)
+  const navigatorEvents = ifButtonPress(closeOrClear)
   navigator.setOnNavigatorEvent(navigatorEvents)
   return (
     <View>
