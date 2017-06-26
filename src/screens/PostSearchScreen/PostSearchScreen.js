@@ -4,6 +4,7 @@ import { View, Text }     from 'react-native'
 import R                  from 'ramda'
 import { navigatorStyle } from '../../constants/styles'
 
+// ifButtonPress :: (a -> b) -> a -> b a
 const ifButtonPress = action =>
   R.when(
     R.propEq('type', 'NavBarButtonPress'),
