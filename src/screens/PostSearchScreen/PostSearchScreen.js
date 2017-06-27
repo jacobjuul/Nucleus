@@ -1,8 +1,15 @@
 import React              from 'react'
 import { connect }        from 'react-redux'
-import { View, Text }     from 'react-native'
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet }            from 'react-native'
 import R                  from 'ramda'
-import { navigatorStyle } from '../../constants/styles'
+import {
+  navigatorStyle,
+  colors }                from '../../constants/styles'
+import { searchFilter }   from '../../actions/postActions'
 
 // ifButtonPress :: (a -> b) -> a -> b a
 const ifButtonPress = action =>
@@ -11,7 +18,7 @@ const ifButtonPress = action =>
     action
   )
 
-const PostSearchScreen = ({ navigator }) => {
+const PostSearchScreen = ({ navigator, searchFilter }) => {
   const closeOrClear = event => {
     if (event.id === 'search.close') navigator.dismissModal()
     if (event.id === 'search.clear') console.log('clear')
@@ -19,14 +26,46 @@ const PostSearchScreen = ({ navigator }) => {
 
   const navigatorEvents = ifButtonPress(closeOrClear)
   navigator.setOnNavigatorEvent(navigatorEvents)
+
   return (
-    <View>
-      <Text>SearchScreen</Text>
+    <View style={styles.container}>
+      <View style={styles.searchContainer}>
+        <TextInput
+          style={styles.search}
+          keyboardType="web-search"
+          placeholder="Search"
+          onChangeText={searchFilter}
+          placeholderTextColor="rgba(255,255,255,0.2)"
+          clearButtonMode="always"
+          autoFocus
+        />
+      </View>
+      <View />
     </View>
   )
 }
 
-PostSearchScreen.navigatorStyle = navigatorStyle
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: colors.primary,
+    flex: 1
+  },
+  searchContainer: {
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: 'rgba(255,255,255,0.4)',
+    padding: 20
+  },
+  search: {
+    height: 40,
+    color: 'white'
+  }
+})
+
+PostSearchScreen.navigatorStyle = {
+  ...navigatorStyle,
+  drawUnderNavBar: false
+}
+
 PostSearchScreen.navigatorButtons = {
   leftButtons: [{
     title: 'X',
@@ -42,4 +81,4 @@ const mapStateToProps = state => ({
   state: ''
 })
 
-export default connect(mapStateToProps, {})(PostSearchScreen)
+export default connect(mapStateToProps, { searchFilter })(PostSearchScreen)
