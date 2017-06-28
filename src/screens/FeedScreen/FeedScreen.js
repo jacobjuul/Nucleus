@@ -8,6 +8,7 @@ import {
 import { colors }           from '../../constants/styles'
 import { fetchPosts }       from '../../actions/postActions'
 import FeedItem             from '../../components/FeedItem'
+import AuthHoc              from '../../HOC/AuthHoc'
 
 class FeedScreen extends Component {
   constructor(props) {
@@ -79,4 +80,4 @@ const mapStateToProps = ({ entities, posts }) => ({
   fetched: posts.fetched
 })
 
-export default connect(mapStateToProps, { fetchPosts })(FeedScreen)
+export default connect(mapStateToProps, { fetchPosts })(AuthHoc(FeedScreen))

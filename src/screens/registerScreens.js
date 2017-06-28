@@ -7,6 +7,7 @@ import WriteCommentScreen from './WriteCommentScreen'
 import PostSearchScreen   from './PostSearchScreen'
 import NotReady           from './NotReady'
 
+
 export function registerScreens(store, Provider) {
   Navigation.registerComponent('nuke.feed', () => FeedScreen, store, Provider)
   Navigation.registerComponent('nuke.postscreen', () => PostScreen, store, Provider)
