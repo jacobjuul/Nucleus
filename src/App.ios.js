@@ -24,54 +24,64 @@ class App extends Component {
   }
 
   startApp() {
-    Navigation.startTabBasedApp({
-      tabs: [{
-        screen: 'nuke.feed',
-        icon: require('./assets/icons/home-deactive.png'),
-        selectedIcon: require('./assets/icons/home-active.png'),
-        title: 'Business updates',
-        navigatorStyle,
-        iconInsets,
-        navigatorButtons: {
-          rightButtons: [{
-            title: '',
-            id: 'newsfeed.nav.bookmark',
-            icon: require('./assets/icons/Bookmark.png')
-          }],
-          leftButtons: [{
-            title: '',
-            id: 'newsfeed.nav.search',
-            icon: require('./assets/icons/Search.png')
-          }]
+    if (!store.getState().session.currentUser) {
+      Navigation.startSingleScreenApp({
+        screen: {
+          screen: 'nuke.login',
+          title: '',
+          navigatorStyle: { navBarHidden: true },
+        },
+      })
+    } else {
+      Navigation.startTabBasedApp({
+        tabs: [{
+          screen: 'nuke.feed',
+          icon: require('./assets/icons/home-deactive.png'),
+          selectedIcon: require('./assets/icons/home-active.png'),
+          title: 'Business updates',
+          navigatorStyle,
+          iconInsets,
+          navigatorButtons: {
+            rightButtons: [{
+              title: '',
+              id: 'newsfeed.nav.bookmark',
+              icon: require('./assets/icons/Bookmark.png')
+            }],
+            leftButtons: [{
+              title: '',
+              id: 'newsfeed.nav.search',
+              icon: require('./assets/icons/Search.png')
+            }]
+          }
+        }, {
+          screen: 'nuke.leadership',
+          icon: require('./assets/icons/Users-deaktive.png'),
+          selectedIcon: require('./assets/icons/Users-active.png'),
+          title: 'Leadership',
+          navigatorStyle,
+          iconInsets
+        }, {
+          screen: 'nuke.notready',
+          icon: require('./assets/icons/toolbox-deactive.png'),
+          selectedIcon: require('./assets/icons/toolbox-active.png'),
+          title: 'Toolbox',
+          navigatorStyle,
+          iconInsets
+        }, {
+          screen: 'nuke.notready',
+          icon: require('./assets/icons/meetings-deactive.png'),
+          selectedIcon: require('./assets/icons/meetings-active.png'),
+          title: 'Quarterly Meetings',
+          navigatorStyle,
+          iconInsets
+        }],
+        tabsStyle: {
+          tabBarButtonColor: 'rgba(255,255,255,0.9)',
+          tabBarSelectedButtonColor: 'none',
+          tabBarBackgroundColor: colors.tabBar
         }
-      }, {
-        screen: 'nuke.leadership',
-        icon: require('./assets/icons/Users-deaktive.png'),
-        selectedIcon: require('./assets/icons/Users-active.png'),
-        title: 'Leadership',
-        navigatorStyle,
-        iconInsets
-      }, {
-        screen: 'nuke.notready',
-        icon: require('./assets/icons/toolbox-deactive.png'),
-        selectedIcon: require('./assets/icons/toolbox-active.png'),
-        title: 'Toolbox',
-        navigatorStyle,
-        iconInsets
-      }, {
-        screen: 'nuke.notready',
-        icon: require('./assets/icons/meetings-deactive.png'),
-        selectedIcon: require('./assets/icons/meetings-active.png'),
-        title: 'Quarterly Meetings',
-        navigatorStyle,
-        iconInsets
-      }],
-      tabsStyle: {
-        tabBarButtonColor: 'rgba(255,255,255,0.9)',
-        tabBarSelectedButtonColor: 'none',
-        tabBarBackgroundColor: colors.tabBar
-      }
-    })
+      })
+    }
   }
 }
 

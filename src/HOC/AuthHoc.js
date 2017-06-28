@@ -1,7 +1,8 @@
 import React, { Component }        from 'react'
 import { connect }                 from 'react-redux'
 import { View, Text }              from 'react-native'
-import { getUserFromAsyncStorage } from '../../actions/sessionActions'
+import LoginScreen                 from '../screens/LoginScreen'
+import { getUserFromAsyncStorage } from '../actions/sessionActions'
 
 const AuthHoc = (WrappedComponent) => {
   class _AuthHOC extends Component {
@@ -11,20 +12,32 @@ const AuthHoc = (WrappedComponent) => {
       }
     }
 
+    toggleNavAndTabs = (to) => {
+      this.props.navigator.toggleTabs({ to, animated: false })
+      this.props.navigator.toggleNavBar({ to, animated: false })
+    }
+
     renderLogin = () => {
-      return <View><Text>LOOOOGIN!!!</Text></View>
+      this.toggleNavAndTabs('hidden')
+      return <LoginScreen key="Login" {...this.props} />
+    }
+
+    renderWrapped = () => {
+      this.toggleNavAndTabs('shown')
+      return <WrappedComponent {...this.props} />
     }
 
     render() {
-      if (!this.props.currentUser) {
+      if (this.props.currentUser) {
         return this.renderLogin()
       }
-      return <WrappedComponent {...this.props} />
+      return this.renderWrapped()
     }
   }
 
   const mapStateToProps = ({ session }) => ({
-    currentUser: session.currentUser
+    currentUser: session.currentUser,
+    loggingIn: session.loggingIn
   })
 
   return connect(mapStateToProps, { getUserFromAsyncStorage })(_AuthHOC)

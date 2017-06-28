@@ -1,5 +1,6 @@
 import { AsyncStorage } from 'react-native'
 import * as types from '../constants/actionTypes'
+import api from '../utils/apiHelper'
 
 export const getUserFromAsyncStorage = () => async (dispatch) => {
   try {
@@ -9,6 +10,18 @@ export const getUserFromAsyncStorage = () => async (dispatch) => {
     }
   } catch (error) {
     console.log(error)
+  }
+}
+
+export const login = ({ email, password }) => async (dispatch) => {
+  dispatch({ type: types.USER_LOGIN_INIT })
+  try {
+    const user = await api.user.login({ email, password})
+    if (user) {
+      dispatch({ type: types.USER_LOGIN_SUCCESS, user })
+    }
+  } catch (error) {
+    dispatch({ type: types.USER_LOGIN_FAILURE, error })
   }
 }
 
