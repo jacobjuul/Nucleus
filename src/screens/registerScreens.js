@@ -27,7 +27,18 @@ export function registerScreens(store, Provider) {
   Navigation.registerComponent('nuke.notready', () => NotReady, store, Provider)
 }
 
-export const startTabApp = () => {
+export const startLogin = ({ error }) => {
+  Navigation.startSingleScreenApp({
+    screen: {
+      screen: 'nuke.login',
+      title: '',
+      passProps: { error },
+      navigatorStyle: { navBarHidden: true },
+    },
+  })
+}
+
+export const startTabApp = ({ user }) => {
   Navigation.startTabBasedApp({
     tabs: [{
       screen: 'nuke.feed',
@@ -36,6 +47,7 @@ export const startTabApp = () => {
       title: 'Business updates',
       navigatorStyle,
       iconInsets,
+      passProps: { currentUser: user },
       navigatorButtons: {
         rightButtons: [{
           title: '',

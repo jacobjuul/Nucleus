@@ -1,10 +1,12 @@
 /* eslint-disable no-unused-vars */
-import React, { Component }       from 'react'
-import { Provider, connect }      from 'react-redux'
-import { AsyncStorage }           from 'react-native'
-import { Navigation }             from 'react-native-navigation'
-import { registerScreens, startTabApp }        from './screens/registerScreens'
-import configureStore             from './store/configureStore'
+import React, { Component }  from 'react'
+import { Navigation }        from 'react-native-navigation'
+import { Provider, connect } from 'react-redux'
+import { AsyncStorage }      from 'react-native'
+import configureStore        from './store/configureStore'
+import {
+  registerScreens,
+  startTabApp }              from './screens/registerScreens'
 
 const store = configureStore()
 
@@ -13,27 +15,16 @@ registerScreens(store, Provider)
 class App extends Component {
   constructor() {
     super()
-
     this.authenticate()
   }
 
   authenticate = async () => {
     try {
       const user = await AsyncStorage.getItem('@nukestore:currentUser')
-      user ? startTabApp() : this.startLogin()
+      user ? startTabApp({ user }) : startLogin()
     } catch (error) {
-      console.log(error)
+      startLogin({ error })
     }
-  }
-
-  startLogin = () => {
-    Navigation.startSingleScreenApp({
-      screen: {
-        screen: 'nuke.login',
-        title: '',
-        navigatorStyle: { navBarHidden: true },
-      },
-    })
   }
 }
 
