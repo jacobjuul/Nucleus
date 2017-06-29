@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, TextInput, Image, Keyboard, ActivityIndicator }
 import { colors } from '../../constants/styles'
 import { login } from '../../actions/sessionActions'
 
+
 class LoginScreen extends Component {
   static navigatorStyle = {
     tabBarHidden: true,

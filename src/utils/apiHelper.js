@@ -1,7 +1,7 @@
 import algoliasearch from 'algoliasearch/reactnative'
 import { POSTS, USERS } from '../constants/collections'
 
-const BASE_URL = 'https://maersk-nucleus-backend.herokuapp.com/api'
+const BASE_URL = 'http://localhost:3000/api'
 const API_VERSION = 'v1'
 const apiUrl = endpoint => `${BASE_URL}/${API_VERSION}/${endpoint}`
 
@@ -17,8 +17,7 @@ export const add = collection => objects =>
   client.initIndex(collection).addObjects(objects)
 
 const login = async ({ email, password }) => {
-  console.log(email, password)
-  let formdata = new FormData()
+  const formdata = new FormData()
   formdata.append('email', email)
   formdata.append('password', password)
   try {
