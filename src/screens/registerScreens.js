@@ -7,7 +7,6 @@ import WriteCommentScreen from './WriteCommentScreen'
 import PostSearchScreen   from './PostSearchScreen'
 import LoginScreen        from './LoginScreen'
 import NotReady           from './NotReady'
-import AuthHoc            from '../HOC/AuthHoc'
 import { colors, navigatorStyle } from '../constants/styles'
 
 const iconInsets = { // add this to change icon position (optional, iOS only).
