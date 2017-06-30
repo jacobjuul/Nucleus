@@ -1,16 +1,16 @@
 // @flow
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import rootReducer from '../reducers/rootReducer';
-import logger from 'redux-logger';
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+import rootReducer from '../reducers/rootReducer'
+import logger from 'redux-logger'
 
-let midWare: Object[] = [thunk];
+let midWare: Object[] = [thunk]
 
 if (__DEV__) {
 
-  midWare = [...midWare, logger];
+  midWare = [...midWare, logger]
 } else {
-  midWare = [...midWare];
+  midWare = [...midWare]
 }
 
 export default function configureStore(initialState: Object) {
@@ -18,5 +18,5 @@ export default function configureStore(initialState: Object) {
     rootReducer,
     // initialState,
     applyMiddleware(...midWare)
-  );
+  )
 }

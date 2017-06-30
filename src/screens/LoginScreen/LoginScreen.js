@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { View, Text, StyleSheet, TextInput, Image, Keyboard, ActivityIndicator } from 'react-native'
 import { colors } from '../../constants/styles'
-import { login } from '../../actions/sessionActions'
+import { login } from '../../actions/appActions'
 
 
 class LoginScreen extends Component {
-  static navigatorStyle = {
-    tabBarHidden: true,
-    drawUnderTabBar: true
-  }
+  // static navigatorStyle = {
+  //   tabBarHidden: true,
+  //   drawUnderTabBar: true
+  // }
 
   changeEmail = text => this.email = text
   changePassword = text => this.password = text
