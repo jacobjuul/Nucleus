@@ -12,4 +12,4 @@ export const fetchUsers = () => async (dispatch) => {
   } catch (error) {
     dispatch({ type: FETCH_USERS_FAILURE, error });
   }
-};
+}

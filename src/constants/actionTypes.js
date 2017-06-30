@@ -1,3 +1,6 @@
+export const INITIALIZED = 'example.app.INITIALIZED'
+export const ROOT_CHANGED = 'example.app.ROOT_CHANGED'
+
 export const FETCH_POSTS = 'FETCH_POSTS'
 export const FETCH_POSTS_SUCCESS = 'FETCH_POSTS_SUCCESS'
 export const FETCH_POSTS_FAILURE = 'FETCH_POSTS_FAILURE'
