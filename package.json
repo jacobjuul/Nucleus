@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "react-native run-ios && npm test",
-    "test": "jest --watchAll",
+    "test": "jest --watchAll --verbose",
     "test:update": "jest --updateSnapshot"
   },
   "dependencies": {

@@ -1,25 +1,50 @@
-// @flow
-
-type stateType = {
-  currentUser: ?Object,
-};
+import * as types from '../constants/actionTypes'
 
 const initialState = {
-  currentUser: null
-};
+  currentUser: undefined,
+  loggingIn: false,
+  loginError: undefined,
+}
 
-export const sessionReducer = (state: stateType = initialState, action: Object) => {
-  switch(action.type) {
-    case 'TEST': {
-      return state;
-    };
+export const sessionReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case types.USER_LOGIN_INIT: {
+      return {
+        ...state,
+        loggingIn: true,
+        loginError: undefined,
+      }
+    }
+
+    case types.USER_LOGIN_SUCCESS: {
+      return {
+        ...state,
+        loggingIn: false,
+        loginError: undefined,
+        currentUser: action.user
+      }
+    }
+
+    case types.USER_LOGIN_FAILURE: {
+      return {
+        ...state,
+        currentUser: undefined,
+        loggingIn: false,
+        loginError: action.error
+      }
+    }
+
+    case types.USER_FROM_STORAGE: {
+      return {
+        ...state,
+        currentUser: action.user,
+      }
+    }
 
     default: {
-      return state;
-    };
+      return state
+    }
   }
 }
 
-
-
-export default sessionReducer;
+export default sessionReducer

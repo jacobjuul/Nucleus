@@ -25,7 +25,7 @@ const AuthorBar = ({ name, image, date, dateFormat }: PropTypes) => {
 }
 
 AuthorBar.defaultProps = {
-  dateFormat: 'd. MMMM',
+  dateFormat: 'D. MMMM',
   name: '',
   image: '',
   date: new Date()

@@ -25,7 +25,7 @@ class FeedScreen extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchPosts()
   }
 
