@@ -6,7 +6,8 @@ import { AsyncStorage }      from 'react-native'
 import configureStore        from './store/configureStore'
 import {
   registerScreens,
-  startTabApp }              from './screens/registerScreens'
+  startTabApp,
+  startLogin }               from './screens/registerScreens'
 
 const store = configureStore()
 
