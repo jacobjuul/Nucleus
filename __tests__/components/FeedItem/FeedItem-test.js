@@ -12,6 +12,7 @@ describe('FeedItem', () => {
         title="Short Title"
         bookmarks={4}
         comments={12}
+        date={new Date("1985-06-20")}
       />
     )
 

@@ -74,7 +74,7 @@ exports[`FeedItem renders correctly 1`] = `
           }
         }
       >
-        5. June
+        20. June
       </Text>
     </View>
   </View>

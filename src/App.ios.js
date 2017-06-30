@@ -107,15 +107,6 @@ class App {
       }
     }
   }
-
-  // authenticate = async () => {
-  //   try {
-  //     const user = await AsyncStorage.getItem('@nukestore:currentUser')
-  //     user ? startTabApp({ user }) : startLogin()
-  //   } catch (error) {
-  //     startLogin({ error })
-  //   }
-  // }
 }
 
 export default App
