@@ -1,5 +1,5 @@
-export const INITIALIZED = 'example.app.INITIALIZED'
-export const ROOT_CHANGED = 'example.app.ROOT_CHANGED'
+export const INITIALIZED = 'nuke.INITIALIZED'
+export const ROOT_CHANGED = 'nuke.ROOT_CHANGED'
 
 export const FETCH_POSTS = 'FETCH_POSTS'
 export const FETCH_POSTS_SUCCESS = 'FETCH_POSTS_SUCCESS'
