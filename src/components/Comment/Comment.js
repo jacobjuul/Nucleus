@@ -6,14 +6,12 @@ import {
 import AuthorBar   from '../AuthorBar'
 import { effects } from '../../constants/styles'
 
-const Comment = ({ content, user, date }) => {
-  return (
-    <View style={[styles.container, effects.boxShadow]}>
-      <AuthorBar name={user.name} image={user.image_url} date={date} />
-      <Text>{content}</Text>
-    </View>
-  )
-}
+const Comment = ({ content, user, date }) => (
+  <View style={[styles.container, effects.boxShadow]}>
+    <AuthorBar name={user.name} image={user.image_url} date={date} />
+    <Text>{content}</Text>
+  </View>
+)
 
 const styles = StyleSheet.create({
   container: {

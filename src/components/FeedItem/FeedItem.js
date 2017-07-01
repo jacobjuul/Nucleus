@@ -23,7 +23,7 @@ type PropTypes =
   , comments:  number
   , bookmarks: number }
 
-const FeedItem = ({ id, title, author, excerpt, comments, bookmarks, date, image, onPress }: PropTypes) => {
+const FeedItem = ({ id, title, author, excerpt, comments, bookmarks, date, image, onPress, onToggleBookmark }: PropTypes) => {
   const getAuthorField = R.pathOr('', R.__, author)
   const authorImage = getAuthorField(['image_url'])
   const authorName = getAuthorField(['name'])
@@ -46,8 +46,10 @@ const FeedItem = ({ id, title, author, excerpt, comments, bookmarks, date, image
         <Text style={styles.readMore}>Read more</Text>
       </TouchableHighlight>
       <FeedItemFooter
+        id={id}
         bookmarks={defaultToList(bookmarks)}
         comments={defaultToList(comments)}
+        onToggleBookmark={onToggleBookmark}
       />
     </View>
   )

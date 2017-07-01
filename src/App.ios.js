@@ -6,6 +6,7 @@ import { AsyncStorage }      from 'react-native'
 import configureStore        from './store/configureStore'
 import { registerScreens }   from './screens/registerScreens'
 import * as appActions       from './actions/appActions'
+import * as types   from './constants/actionTypes'
 import { colors, navigatorStyle } from './constants/styles'
 import { getValue, setValue } from './utils/asyncStorageHelper'
 
@@ -25,7 +26,12 @@ class App {
     // setValue('@nukestore:currentUser', null) // for debug
     store.subscribe(this.onStoreUpdate.bind(this))
     getValue('@nukestore:currentUser').then((user) => {
-      store.dispatch(appActions.appInitialized(user && 'after-login'))
+      if (user) {
+        store.dispatch(appActions.appInitialized('after-login'))
+        store.dispatch({ type: types.USER_FROM_STORAGE, user })
+      } else {
+        store.dispatch(appActions.appInitialized('login'))
+      }
     })
   }
 
