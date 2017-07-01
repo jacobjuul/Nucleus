@@ -22,3 +22,7 @@ export const searchFilter = filter => async (dispatch) => {
   }
 }
 
+export const bookmarkPost = ({ currentUser, postId }) => ({
+  type: types.BOOKMARK_POST, currentUser, postId
+})
+

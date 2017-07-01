@@ -9,10 +9,43 @@ const normalize = R.indexBy(R.prop('id'))
 const initialPosts = {}
 const initialUsers = {}
 
-const posts = (state = initialPosts, action: Object) => {
+const createBookmarkLens = R.curry((postId, length) => {
+  if (length == null) {
+    return R.lensPath([postId, 'bookmark_users'])
+  }
+  return R.lensPath([postId, 'bookmark_users', length])
+})
+
+const bookmarks = (bookmarks, currentUser) => {
+  const isBookmarked = R.any(b => b.id === currentUser.id)
+  if (isBookmarked(bookmarks)) {
+    return bookmarks.filter((i) => i.id !== currentUser.id)
+  }
+  return [...bookmarks, currentUser]
+}
+
+const post = (post, { currentUser, postId }) => {
+  return {
+    ...post,
+    bookmark_users: bookmarks(post.bookmark_users, currentUser)
+  }
+}
+
+const posts = (state = initialPosts, action) => {
+  const postBookmarkLens = createBookmarkLens(action.postId)
+  const bookmarkArrLens = postBookmarkLens(undefined)
+
   if (action.type === types.FETCH_POSTS_SUCCESS) {
     return normalize(action.posts)
   }
+
+  if (action.type === types.BOOKMARK_POST) {
+    return {
+      ...state,
+      [action.postId]: post(state[action.postId], ({ currentUser: action.currentUser }))
+    }
+  }
+
   return state
 }
 
@@ -25,7 +58,7 @@ const users = (state = initialUsers, action) => {
 
 const entitiesReducer = combineReducers({
   posts,
-  users
+  users,
 })
 
 
