@@ -9,13 +9,6 @@ const normalize = R.indexBy(R.prop('id'))
 const initialPosts = {}
 const initialUsers = {}
 
-const createBookmarkLens = R.curry((postId, length) => {
-  if (length == null) {
-    return R.lensPath([postId, 'bookmark_users'])
-  }
-  return R.lensPath([postId, 'bookmark_users', length])
-})
-
 const bookmarks = (bookmarks, currentUser) => {
   const isBookmarked = R.any(b => b.id === currentUser.id)
   if (isBookmarked(bookmarks)) {
@@ -32,9 +25,6 @@ const post = (post, { currentUser, postId }) => {
 }
 
 const posts = (state = initialPosts, action) => {
-  const postBookmarkLens = createBookmarkLens(action.postId)
-  const bookmarkArrLens = postBookmarkLens(undefined)
-
   if (action.type === types.FETCH_POSTS_SUCCESS) {
     return normalize(action.posts)
   }
