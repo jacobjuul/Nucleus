@@ -9,34 +9,53 @@ const normalize = R.indexBy(R.prop('id'))
 const initialPosts = {}
 const initialUsers = {}
 
-const bookmarks = (bookmarks, currentUser) => {
-  const isBookmarked = R.any(b => b.id === currentUser.id)
-  if (isBookmarked(bookmarks)) {
-    return bookmarks.filter((i) => i.id !== currentUser.id)
+const bookmarks = (state, action) => {
+  const isBookmarked = R.any(b => b.id === action.currentUser.id)
+  switch (action.type) {
+    case types.BOOKMARK_POST: {
+      if (isBookmarked(state)) {
+        return state.filter((i) => i.id !== action.currentUser.id)
+      }
+      return [...state, action.currentUser]
+    }
+    default: {
+      return state
+    }
   }
-  return [...bookmarks, currentUser]
 }
 
-const post = (post, { currentUser, postId }) => {
-  return {
-    ...post,
-    bookmark_users: bookmarks(post.bookmark_users, currentUser)
+const post = (state, action) => {
+  switch (action.type) {
+    case types.BOOKMARK_POST: {
+      return {
+        ...state,
+        bookmark_users: bookmarks(state.bookmark_users, action)
+      }
+    }
+
+    default: {
+      return state
+    }
   }
 }
 
 const posts = (state = initialPosts, action) => {
-  if (action.type === types.FETCH_POSTS_SUCCESS) {
-    return normalize(action.posts)
-  }
+  switch(action.type) {
+    case types.FETCH_POSTS_SUCCESS: {
+      return normalize(action.posts)
+    }
 
-  if (action.type === types.BOOKMARK_POST) {
-    return {
-      ...state,
-      [action.postId]: post(state[action.postId], ({ currentUser: action.currentUser }))
+    case types.BOOKMARK_POST: {
+      return {
+        ...state,
+        [action.postId]: post(state[action.postId], action)
+      }
+    }
+
+    default: {
+      return state
     }
   }
-
-  return state
 }
 
 const users = (state = initialUsers, action) => {
