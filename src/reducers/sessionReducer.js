@@ -21,7 +21,7 @@ export const sessionReducer = (state = initialState, action) => {
         ...state,
         loggingIn: false,
         loginError: undefined,
-        currentUser: action.user
+        currentUser: action.user,
       }
     }
 

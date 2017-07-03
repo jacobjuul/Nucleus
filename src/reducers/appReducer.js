@@ -1,7 +1,8 @@
 import * as types from '../constants/actionTypes'
 
 const initialState = {
-  root: undefined // 'login' / 'after-login'
+  root: undefined, // 'login' / 'after-login'
+  authToken: undefined
 }
 
 export default function app(state = initialState, action = {}) {
@@ -13,8 +14,15 @@ export default function app(state = initialState, action = {}) {
       }
     }
 
+    case types.SET_AUTH_TOKEN: {
+      return {
+        ...state,
+        authToken: action.token
+      }
+    }
+
     default: {
-      return state;
+      return state
     }
   }
 }

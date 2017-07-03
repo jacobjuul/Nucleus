@@ -12,11 +12,15 @@ export const changeAppRoot = root => ({ type: types.ROOT_CHANGED, root })
 export const login = ({ email, password }) => async (dispatch) => {
   dispatch({ type: types.USER_LOGIN_INIT })
   try {
-    const user = await api.user.login({ email, password })
-    if (user) {
-      dispatch({ type: types.USER_LOGIN_SUCCESS, user: user.data })
-      dispatch(changeAppRoot('after-login'))
-      setValue('@nukestore:currentUser', user.data)
+    const res = await api.user.login({ email, password })
+    if (res) {
+      dispatch({ type: types.USER_LOGIN_SUCCESS, user: res.data.data })
+      dispatch({ type: types.SET_AUTH_TOKEN, token: res.headers['access-token'] })
+      setValue('@nukestore:currentUser', res.data.data)
+      setValue('@nukestore:authToken', res.headers['access-token'])
+        .then(() => // make sure we have the token before starting
+          dispatch(changeAppRoot('after-login'))
+        )
     }
   } catch (error) {
     dispatch({ type: types.USER_LOGIN_FAILURE, error })

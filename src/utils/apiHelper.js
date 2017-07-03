@@ -23,15 +23,13 @@ const login = async ({ email, password }) => {
   formdata.append('email', email)
   formdata.append('password', password)
   try {
-    const response = await fetch(apiUrl('auth/sign_in'), {
-      method: 'POST',
-      'Content-Type': 'application/json',
-      body: formdata,
-    })
-    if (!response.ok) throw response
-    return response.json()
+    const response = await axios.post(apiUrl('auth/sign_in'), formdata)
+    // if (!response.ok) throw response
+    console.log(response)
+    return response
   } catch (error) {
-    throw error
+
+    console.log( error )
   }
 }
 

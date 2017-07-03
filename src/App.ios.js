@@ -6,7 +6,7 @@ import { AsyncStorage }      from 'react-native'
 import configureStore        from './store/configureStore'
 import { registerScreens }   from './screens/registerScreens'
 import * as appActions       from './actions/appActions'
-import * as types   from './constants/actionTypes'
+import * as types            from './constants/actionTypes'
 import { colors, navigatorStyle } from './constants/styles'
 import { getValue, setValue } from './utils/asyncStorageHelper'
 
