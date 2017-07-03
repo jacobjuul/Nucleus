@@ -253,35 +253,62 @@ exports[`FeedItem renders correctly 1`] = `
       </Text>
     </View>
     <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "alignItems": "center",
-          "display": "flex",
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          undefined,
+        ]
       }
+      testID={undefined}
+      tvParallaxProperties={undefined}
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <View
         style={
-          Array [
-            Object {
-              "fontSize": 12,
-            },
-            Object {
-              "paddingRight": 10,
-            },
-          ]
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "row",
+          }
         }
       >
-         
-        bookmarks
-      </Text>
-      <Image
-        source={1}
-      />
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "fontSize": 12,
+              },
+              Object {
+                "paddingRight": 10,
+              },
+            ]
+          }
+        >
+           
+          bookmarks
+        </Text>
+        <Image
+          source={1}
+        />
+      </View>
     </View>
   </View>
 </View>

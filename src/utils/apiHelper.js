@@ -1,4 +1,5 @@
 import algoliasearch from 'algoliasearch/reactnative'
+import axios from 'axios'
 import { POSTS, USERS } from '../constants/collections'
 
 const BASE_URL = 'https://maersk-nucleus-backend.herokuapp.com/api'
