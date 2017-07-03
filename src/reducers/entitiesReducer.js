@@ -9,11 +9,53 @@ const normalize = R.indexBy(R.prop('id'))
 const initialPosts = {}
 const initialUsers = {}
 
-const posts = (state = initialPosts, action: Object) => {
-  if (action.type === types.FETCH_POSTS_SUCCESS) {
-    return normalize(action.posts)
+const bookmarks = (state, action) => {
+  const isBookmarked = R.any(b => b.id === action.currentUser.id)
+  switch (action.type) {
+    case types.BOOKMARK_POST: {
+      if (isBookmarked(state)) {
+        return state.filter((i) => i.id !== action.currentUser.id)
+      }
+      return [...state, action.currentUser]
+    }
+    default: {
+      return state
+    }
   }
-  return state
+}
+
+const post = (state, action) => {
+  switch (action.type) {
+    case types.BOOKMARK_POST: {
+      return {
+        ...state,
+        bookmark_users: bookmarks(state.bookmark_users, action)
+      }
+    }
+
+    default: {
+      return state
+    }
+  }
+}
+
+const posts = (state = initialPosts, action) => {
+  switch(action.type) {
+    case types.FETCH_POSTS_SUCCESS: {
+      return normalize(action.posts)
+    }
+
+    case types.BOOKMARK_POST: {
+      return {
+        ...state,
+        [action.postId]: post(state[action.postId], action)
+      }
+    }
+
+    default: {
+      return state
+    }
+  }
 }
 
 const users = (state = initialUsers, action) => {
@@ -25,7 +67,7 @@ const users = (state = initialUsers, action) => {
 
 const entitiesReducer = combineReducers({
   posts,
-  users
+  users,
 })
 
 

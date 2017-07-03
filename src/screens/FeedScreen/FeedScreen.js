@@ -6,7 +6,9 @@ import {
   VirtualizedList,
   StyleSheet }              from 'react-native'
 import { colors }           from '../../constants/styles'
-import { fetchPosts }       from '../../actions/postActions'
+import {
+  fetchPosts,
+  bookmarkPost }            from '../../actions/postActions'
 import FeedItem             from '../../components/FeedItem'
 
 class FeedScreen extends Component {
@@ -36,6 +38,9 @@ class FeedScreen extends Component {
       backButtonTitle: ''
     })
 
+  handleBookmarkPost = postId =>
+    this.props.bookmarkPost({ postId, currentUser: this.props.currentUser })
+
   keyExtractor = ({ id }) => id
   renderItem = ({ item }) => (
     <FeedItem
@@ -49,6 +54,7 @@ class FeedScreen extends Component {
       date={item.publish_at}
       image={item.image_url}
       onPress={this.handlePress}
+      onToggleBookmark={this.handleBookmarkPost}
     />
   )
 
@@ -73,10 +79,14 @@ const styles = StyleSheet.create({
   },
 })
 
-const mapStateToProps = ({ entities, posts }) => ({
+const mapStateToProps = ({ entities, posts, session }) => ({
   posts: entities.posts,
   loading: posts.loading,
-  fetched: posts.fetched
+  fetched: posts.fetched,
+  currentUser: session.currentUser
 })
 
-export default connect(mapStateToProps, { fetchPosts })(FeedScreen)
+export default connect(mapStateToProps, {
+  fetchPosts,
+  bookmarkPost
+})(FeedScreen)
