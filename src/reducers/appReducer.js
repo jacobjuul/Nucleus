@@ -14,7 +14,7 @@ export default function app(state = initialState, action = {}) {
       }
     }
 
-    case types.SET_AUTH_TOKEN: {
+    case types.SET_HEADERS: {
       return {
         ...state,
         headers: action.headers

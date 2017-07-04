@@ -15,7 +15,7 @@ export const login = ({ email, password }) => async (dispatch) => {
     const res = await api.user.login({ email, password })
     if (res) {
       dispatch({ type: types.USER_LOGIN_SUCCESS, user: res.data.data })
-      dispatch({ type: types.SET_AUTH_TOKEN, headers: res.headers })
+      dispatch({ type: types.SET_HEADERS, headers: res.headers })
       setValue('@nukestore:currentUser', res.data.data)
       setValue('@nukestore:headers', res.headers)
         .then(() => // make sure we have the token before starting

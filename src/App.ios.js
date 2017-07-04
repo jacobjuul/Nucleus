@@ -30,7 +30,7 @@ class App {
       if (values[1] && values[0]) {
         store.dispatch(appActions.appInitialized('after-login'))
         store.dispatch({ type: types.USER_FROM_STORAGE, user: values[0] })
-        store.dispatch({ type: types.SET_AUTH_TOKEN, headers: values[1] })
+        store.dispatch({ type: types.SET_HEADERS, headers: values[1] })
       } else {
         store.dispatch(appActions.appInitialized('login'))
       }
