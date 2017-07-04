@@ -3,12 +3,12 @@ import React, { Component }  from 'react'
 import { Navigation }        from 'react-native-navigation'
 import { Provider, connect } from 'react-redux'
 import { AsyncStorage }      from 'react-native'
-import configureStore        from './store/configureStore'
+import { store }             from './store/configureStore'
 import { registerScreens }   from './screens/registerScreens'
 import * as appActions       from './actions/appActions'
 import * as types            from './constants/actionTypes'
 import { colors, navigatorStyle } from './constants/styles'
-import { getValue, setValue } from './utils/asyncStorageHelper'
+import { getValue, setValue, removeValue } from './utils/asyncStorageHelper'
 
 const iconInsets = { // add this to change icon position (optional, iOS only).
   top: 6, // optional, default is 0.
@@ -17,18 +17,20 @@ const iconInsets = { // add this to change icon position (optional, iOS only).
   right: 0 // optional, default is 0.
 }
 
-const store = configureStore()
-
 registerScreens(store, Provider)
 
 class App {
   constructor() {
-    // setValue('@nukestore:currentUser', null) // for debug
+    // removeValue('@nukestore:currentUser') // for debug
     store.subscribe(this.onStoreUpdate.bind(this))
-    getValue('@nukestore:currentUser').then((user) => {
-      if (user) {
+    Promise.all([
+      getValue('@nukestore:currentUser'),
+      getValue('@nukestore:headers')
+    ]).then(values => {
+      if (values[1] && values[0]) {
         store.dispatch(appActions.appInitialized('after-login'))
-        store.dispatch({ type: types.USER_FROM_STORAGE, user })
+        store.dispatch({ type: types.USER_FROM_STORAGE, user: values[0] })
+        store.dispatch({ type: types.SET_AUTH_TOKEN, headers: values[1] })
       } else {
         store.dispatch(appActions.appInitialized('login'))
       }

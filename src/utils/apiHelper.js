@@ -1,15 +1,20 @@
-import algoliasearch from 'algoliasearch/reactnative'
-import axios from 'axios'
-import R from 'ramda'
+import algoliasearch    from 'algoliasearch/reactnative'
+import axios            from 'axios'
+import { AsyncStorage } from 'react-native'
+import R                from 'ramda'
 import { POSTS, USERS } from '../constants/collections'
+import { setValue, getValue }     from '../utils/asyncStorageHelper'
 
 const BASE_URL = 'https://maersk-nucleus-backend.herokuapp.com/api'
 const API_VERSION = 'v1'
-const apiUrl = endpoint => `${BASE_URL}/${API_VERSION}/${endpoint}`
 
+const apiUrl = endpoint => `${BASE_URL}/${API_VERSION}/${endpoint}`
 const client = algoliasearch('3OEXHOBM4X', '1b8e1a06756be357872a2bbfeeada98a', {
   timeout: 4000
 })
+
+const setHeaders = headers => axios.defaults.headers.common = headers
+getValue('@nukestore:headers').then(setHeaders)
 
 // get :: String -> String -> Promise
 const get = collection => (search = '') =>
@@ -24,12 +29,11 @@ const login = async ({ email, password }) => {
   formdata.append('password', password)
   try {
     const response = await axios.post(apiUrl('auth/sign_in'), formdata)
-    // if (!response.ok) throw response
-    console.log(response)
+    setHeaders(response.headers)
+    setValue('@nukestore:headers', response.headers)
     return response
   } catch (error) {
-
-    console.log( error )
+    throw error
   }
 }
 

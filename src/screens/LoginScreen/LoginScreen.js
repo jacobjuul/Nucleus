@@ -6,11 +6,6 @@ import { login } from '../../actions/appActions'
 
 
 class LoginScreen extends Component {
-  // static navigatorStyle = {
-  //   tabBarHidden: true,
-  //   drawUnderTabBar: true
-  // }
-
   changeEmail = text => this.email = text
   changePassword = text => this.password = text
   focusPassword = () => this.passwordRef.focus()
