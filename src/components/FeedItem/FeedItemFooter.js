@@ -20,7 +20,8 @@ const FeedItemFooter = ({ comments, bookmarks, onToggleBookmark, id, bookmarked 
           </Text>
           {bookmarked
             ? <Image source={require('../../assets/icons/Bookmark-filled.png')} />
-            : <Image source={require('../../assets/icons/bookmark-blue.png')} /> }
+            : <Image source={require('../../assets/icons/bookmark-blue.png')} />
+          }
 
         </View>
       </TouchableHighlight>

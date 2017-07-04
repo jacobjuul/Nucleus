@@ -40,8 +40,8 @@ class FeedScreen extends Component {
       backButtonTitle: ''
     })
 
-  handleBookmarkPost = (postId, bookmarked) =>
-    this.props.bookmarkPost({ postId, currentUser: this.props.currentUser }, bookmarked)
+  handleBookmarkPost = (postId, shouldBookmark) =>
+    this.props.bookmarkPost({ postId, currentUser: this.props.currentUser }, shouldBookmark)
 
   keyExtractor = ({ id }) => id
   renderItem = ({ item }) => (

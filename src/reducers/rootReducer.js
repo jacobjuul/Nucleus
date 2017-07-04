@@ -1,6 +1,6 @@
 // @flow
 import { combineReducers } from 'redux'
-import users               from './usersReducer'
+import users, * as fromUsers from './usersReducer'
 import app                 from './appReducer'
 import posts               from './postsReducer'
 import entities            from './entitiesReducer'
@@ -13,5 +13,8 @@ const rootReducer = combineReducers({
   session,
   app,
 })
+
+export const getPostBookmarksForUser = (state, userId) =>
+  fromUsers.getPostBookmarksForUser(state.entities.users, userId)
 
 export default rootReducer

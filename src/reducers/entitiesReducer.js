@@ -71,3 +71,7 @@ const entitiesReducer = combineReducers({
 
 
 export default entitiesReducer
+
+// gets the users state
+export const getPostBookmarksForUser = (state, userId) =>
+  state[userId].bookmarked_posts
