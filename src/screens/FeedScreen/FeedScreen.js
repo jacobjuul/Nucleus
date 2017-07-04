@@ -26,6 +26,14 @@ class FeedScreen extends Component {
           screen: 'nuke.posts.searchscreen'
         })
       }
+
+      if (event.id === 'newsfeed.nav.bookmark') {
+        this.props.navigator.push({
+          screen: 'nuke.posts.bookmarks',
+          backButtonTitle: '',
+          title: 'Your bookmarks'
+        })
+      }
     }
   }
 
@@ -87,7 +95,7 @@ const mapStateToProps = ({ entities, posts, session }) => ({
   posts: entities.posts,
   loading: posts.loading,
   fetched: posts.fetched,
-  currentUser: session.currentUser
+  currentUser: session.currentUser,
 })
 
 export default connect(mapStateToProps, {

@@ -69,9 +69,11 @@ const entitiesReducer = combineReducers({
   users,
 })
 
-
 export default entitiesReducer
 
 // gets the users state
-export const getPostBookmarksForUser = (state, userId) =>
-  state[userId].bookmarked_posts
+export const getPostBookmarksForUser = ({ users, posts }, userId) => {
+  const bookmarkIds = users[userId].bookmarked_posts
+  return R.props(bookmarkIds, posts)
+}
+

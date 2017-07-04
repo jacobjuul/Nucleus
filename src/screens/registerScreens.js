@@ -14,7 +14,7 @@ export function registerScreens(store, Provider) {
   Navigation.registerComponent('nuke.postscreen', () => PostScreen, store, Provider)
   Navigation.registerComponent('nuke.leadership', () => LeadershipScreen, store, Provider)
   Navigation.registerComponent('nuke.writecomment', () => WriteCommentScreen, store, Provider)
-  Navigation.registerComponent('nuke.Bookmarks', () => BookmarksScreen, store, Provider)
+  Navigation.registerComponent('nuke.posts.bookmarks', () => BookmarksScreen, store, Provider)
   Navigation.registerComponent('nuke.posts.searchscreen', () => PostSearchScreen, store, Provider)
   Navigation.registerComponent('nuke.notready', () => NotReady, store, Provider)
   Navigation.registerComponent('nuke.login', () => LoginScreen, store, Provider)
