@@ -1,7 +1,7 @@
 /* @flow */
 import React, { Component } from 'react'
 import { connect }          from 'react-redux'
-import R_valuesIn           from 'ramda/src/valuesIn'
+import R                    from 'ramda'
 import {
   VirtualizedList,
   StyleSheet }              from 'react-native'
@@ -10,6 +10,8 @@ import {
   fetchPosts,
   bookmarkPost }            from '../../actions/postActions'
 import FeedItem             from '../../components/FeedItem'
+
+const bookmarked = R.memoize(userId => R.any(R.propEq('id', userId)))
 
 class FeedScreen extends Component {
   constructor(props) {
@@ -38,8 +40,8 @@ class FeedScreen extends Component {
       backButtonTitle: ''
     })
 
-  handleBookmarkPost = postId =>
-    this.props.bookmarkPost({ postId, currentUser: this.props.currentUser })
+  handleBookmarkPost = (postId, bookmarked) =>
+    this.props.bookmarkPost({ postId, currentUser: this.props.currentUser }, bookmarked)
 
   keyExtractor = ({ id }) => id
   renderItem = ({ item }) => (
@@ -50,6 +52,7 @@ class FeedScreen extends Component {
       excerpt={item.excerpt}
       content={item.content}
       bookmarks={item.bookmark_users}
+      bookmarked={bookmarked(this.props.currentUser.id)(item.bookmark_users)}
       comments={item.comments}
       date={item.publish_at}
       image={item.image_url}
@@ -58,11 +61,12 @@ class FeedScreen extends Component {
     />
   )
 
+
   render() {
     return (
       <VirtualizedList
         style={styles.container}
-        data={R_valuesIn(this.props.posts)}
+        data={R.valuesIn(this.props.posts)}
         renderItem={this.renderItem}
         refreshing={this.props.loading}
         onRefresh={this.props.fetchPosts}

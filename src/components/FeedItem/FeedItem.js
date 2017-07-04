@@ -23,12 +23,11 @@ type PropTypes =
   , comments:  number
   , bookmarks: number }
 
-const FeedItem = ({ id, title, author, excerpt, comments, bookmarks, date, image, onPress, onToggleBookmark }: PropTypes) => {
+const FeedItem = ({ id, title, author, excerpt, comments, bookmarks, date, image, onPress, onToggleBookmark, bookmarked }: PropTypes) => {
   const getAuthorField = R.pathOr('', R.__, author)
   const authorImage = getAuthorField(['image_url'])
   const authorName = getAuthorField(['name'])
   const defaultToList = R.defaultTo([])
-
   const handlePress = () => onPress(id)
 
   return (
@@ -48,6 +47,7 @@ const FeedItem = ({ id, title, author, excerpt, comments, bookmarks, date, image
       <FeedItemFooter
         id={id}
         bookmarks={defaultToList(bookmarks)}
+        bookmarked={bookmarked}
         comments={defaultToList(comments)}
         onToggleBookmark={onToggleBookmark}
       />

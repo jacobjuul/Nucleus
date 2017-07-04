@@ -22,12 +22,14 @@ export const searchFilter = filter => async (dispatch) => {
   }
 }
 
-export const bookmarkPost = ({ currentUser, postId }) => {
-  api.create.bookmark({ user_id: currentUser.id, post_id: postId })
+export const bookmarkPost = ({ currentUser, postId }, shouldBookmark) => {
+  if (shouldBookmark) {
+    api.create.bookmark({ user_id: currentUser.id, post_id: postId })
     .then(console.log)
     .catch(console.error)
+  }
 
   // Optimistic ui update
-  return { type: types.BOOKMARK_POST, currentUser, postId }
+  return { type: types.BOOKMARK_POST, currentUser, postId, shouldBookmark }
 }
 

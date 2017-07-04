@@ -10,11 +10,10 @@ const initialPosts = {}
 const initialUsers = {}
 
 const bookmarks = (state, action) => {
-  const isBookmarked = R.any(b => b.id === action.currentUser.id)
   switch (action.type) {
     case types.BOOKMARK_POST: {
-      if (isBookmarked(state)) {
-        return state.filter((i) => i.id !== action.currentUser.id)
+      if (!action.shouldBookmark) {
+        return state.filter(i => i.id !== action.currentUser.id)
       }
       return [...state, action.currentUser]
     }

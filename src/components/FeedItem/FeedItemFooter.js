@@ -3,8 +3,8 @@ import { View, Text, Image, TouchableHighlight } from 'react-native'
 import styles                from './FeedItemStyles'
 import pluralize             from '../../utils/pluralize'
 
-const FeedItemFooter = ({ comments, bookmarks, onToggleBookmark, id }) => {
-  const onBookmarkPress = () => onToggleBookmark(id)
+const FeedItemFooter = ({ comments, bookmarks, onToggleBookmark, id, bookmarked }) => {
+  const onBookmarkPress = () => onToggleBookmark(id, !bookmarked)
   return (
     <View style={styles.footer}>
       <View style={styles.footerSection}>
@@ -18,7 +18,10 @@ const FeedItemFooter = ({ comments, bookmarks, onToggleBookmark, id }) => {
           <Text style={[styles.footerText, styles.footerPaddingRight]}>
             {bookmarks.length} {pluralize('bookmark', bookmarks)}
           </Text>
-          <Image source={require('../../assets/icons/bookmark-blue.png')} />
+          {bookmarked
+            ? <Image source={require('../../assets/icons/Bookmark-filled.png')} />
+            : <Image source={require('../../assets/icons/bookmark-blue.png')} /> }
+
         </View>
       </TouchableHighlight>
     </View>
